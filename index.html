@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdowns Dinâmicos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="controls">
+        <input type="text" id="outputField" readonly />
+        <br />
+        <select id="temaDropdown" onclick="populateOptions()">
+          <option value="" disabled selected>Selecione um tema</option>
+          <option value="tema1">Tema 1</option>
+          <option value="tema2">Tema 2</option>
+          <option value="tema3">Tema 3</option>
+        </select>
+        <select id="opcaoDropdown" disabled>
+          <option value="" disabled selected>Selecione uma opção</option>
+        </select>
+        <br />
+        <button onclick="copyText()">Copiar Texto</button>
+      </div>
+    </div>
+    <div class="footer">Footer</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
