@@ -3,29 +3,297 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dropdowns Dinâmicos</title>
     <link rel="stylesheet" href="style.css" />
+    <title>Scripts</title>
   </head>
   <body>
     <div class="container">
-      <div class="controls">
-        <input type="text" id="outputField" readonly />
-        <br />
-        <select id="temaDropdown" onclick="populateOptions()">
-          <option value="" disabled selected>Selecione um tema</option>
-          <option value="tema1">Tema 1</option>
-          <option value="tema2">Tema 2</option>
-          <option value="tema3">Tema 3</option>
-        </select>
-        <select id="opcaoDropdown" disabled>
-          <option value="" disabled selected>Selecione uma opção</option>
-        </select>
-        <br />
-        <button onclick="copyText()">Copiar Texto</button>
-      </div>
-    </div>
-    <div class="footer">Footer</div>
+      <section class="theme" id="saudacao">
+        <h2>Saudação</h2>
+        <div class="title" data-phrase="Olá, NOME, como posso te ajudar">
+          Como posso ajudar?
+        </div>
+        <div
+          class="title"
+          data-phrase="Compreendo, NOME, para que eu possa verificar o que está acontecendo, poderia me confirmar o endereço do local?"
+        >
+          Endereço
+        </div>
+        <div
+          class="title"
+          data-phrase="Estou fazendo essas perguntinhas para diagnosticar a origem do problema para conseguir solucioná-lo. Tudo bem?😉"
+        >
+          Perguntinhas 1
+        </div>
+        <div
+          class="title"
+          data-phrase="Irei fazer algumas perguntinhas para diagnosticar a origem do problema para conseguir solucioná-lo Tudo bem?😉"
+        >
+          Perguntinhas 2
+        </div>
+        <div
+          class="title"
+          data-phrase="Certo. Irei verificar o que está acontecendo. Só um momento."
+        >
+          Irei verificar
+        </div>
+        <div
+          class="title"
+          data-phrase="Verifiquei que algumas configurações estão pendentes em sua rede. Posso ajustar essas configurações? Sua conexão vai cair mas volta rapidinho"
+        >
+          Configurações em rede
+        </div>
+        <div
+          class="title"
+          data-phrase="Terminei meus procedimentos. Gostaria que você testasse sua conexão. Você poderia conectar na sua rede 5G e me informar se no aplicativo do Youtube você está conseguindo assistir um vídeo?"
+        >
+          Testar
+        </div>
+        <div
+          class="title"
+          data-phrase="Depois do último atendimento que você teve conosco, foi feita alguma alteração na rede, tanto nas configurações do roteador quanto nos equipamentos do local?
+          "
+        >
+          Desconfigurou a rede
+        </div>
+      </section>
+      <section class="theme" id="lentidao">
+        <h2>Lentidão</h2>
+        <div
+          class="title"
+          data-phrase="Poderia me informar em qual rede wifi você costuma usar e em quais dispositivos (celular, computador, etc) você notou este problema?"
+        >
+          Qual dispositivos e rede wifi?
+        </div>
+        <div
+          class="title"
+          data-phrase="Entendi. Sabe me informar quais aplicativos você está tentando acessar em seu dispositivo e isso aconteceu?"
+        >
+          Quais apps?
+        </div>
+        <div
+          class="title"
+          data-phrase="Você já testou a navegação de sua rede em outro aplicativo, por exemplo, no Youtube, se o problema está acontecendo também?"
+        >
+          Se já testou outro app
+        </div>
+        <div
+          class="title"
+          data-phrase="Você possui uma TV BOX? Seria um aparelho que conecta a sua TV à
+          internet."
+        >
+          TVBOX
+        </div>
+      </section>
+      <section class="theme" id="outros">
+        <h2>Outros</h2>
+        <div
+          class="title"
+          data-phrase="A maioria de nossos atendimentos são solucionados de forma remota, por isso, antes de enviarmos um técnico ao local, eu precisarei verificar o que está acontecendo na sua rede remotamente e tentar solucioná-lo 🤗"
+        >
+          Quando cliente pede técnico
+        </div>
+        <div
+          class="title"
+          data-phrase="Você tem duas rede wifi: XXX e XXX_5G
+        
+        Sendo rede XXX  utiliza a tecnologia WIFI 2.4GHz eXXX_5G a tecnologia WIFI 5GHz
+        
+        A rede Wi-Fi de 2.4 GHz oferece um alcance maior e melhor penetração em obstáculos, porém com velocidades de transferência de dados mais baixas. Enquanto isso, a rede Wi-Fi de 5 GHz oferece velocidades de transferência de dados mais rápidas, mas possui um alcance menor e é mais suscetível a interferências devido à sua frequência mais alta.
+        "
+        >
+          Diferenças entre 2.4G e 5G
+        </div>
+        <div
+          class="title"
+          data-phrase="Estava verificando e percebi que este problema é reincidente.
+Neste caso, estarei repassando o seu atendimento para um especialista dar continuidade em seu atendimento    
+Nós entraremos em contato contigo o mais breve possível
+      
+Tudo bem?😉"
+        >
+          Reincidência
+        </div>
+        <div
+          class="title"
+          data-phrase="Em breve um especialista entrará em contato contigo para continuar este atendimento.
+Se surgir mais alguma dúvida ou precisar de assistência no futuro, não hesite em entrar em contato.
+      
+O número do seu protocolo é: *PROTOCOL*
+      
+A WSNET agradece o seu contato, saiba que você é importante para nós, tenha um(a) bom dia! 💙😊"
+        >
+          Reincidência - Finalização com protocolo
+        </div>
+        <div
+          class="title"
+          data-phrase="Irei te transferir para um de nossos atendentes, por conta do meu expediente. Mas não se preocupe que iremos te ajudar😉"
+        >
+          Transferir - HelpDesk
+        </div>
+        <div
+          class="title"
+          data-phrase="Verifiquei que em seu serviço há uma mensagem administrativa.
+Nesse caso, vou transferir ao setor responsável. Só um momento enquanto transfiro 😉"
+        >
+          Transferir - Suspenso por Débitos
+        </div>
+        <div
+          class="title"
+          data-phrase="Peço um momentinho pois essa questão é tratada com outro departamento, vou transferir ao setor responsável. Só um momento enquanto transfiro 😉"
+        >
+          Transferir - Outro setor
+        </div>
+        <div
+          class="title"
+          data-phrase="Posso te ajudar quanto a isso. Mas te informo previamente que ao trocar a senha, todos os dispositivos conectados (inclusive câmeras de segurança) serão desconectado automaticamente, mas basta conectá-los com a nova senha 😉
 
+Qual será a nova senha?"
+        >
+          Troca de senha
+        </div>
+        <div
+          class="title"
+          data-phrase="Senha trocada. Poderia testar e me confirmar se você conseguiu conectar no wifi?"
+        >
+          Troca de senha - Testar
+        </div>
+        <div
+          class="title"
+          data-phrase="Gostaria de pedir um favor antes de encerrar esse atendimento...
+Poderia avaliar o meu atendimento? É bem simples, basta acessar o link abaixo e deixar um comentário com 5 ⭐ contendo o meu nome (Ricardo).
+Isso me ajuda a bate a minha meta 😊
+      
+Link: https://g.page/r/Ce2FozYTA7IYEAI/review"
+        >
+          Avaliação
+        </div>
+      </section>
+
+      <section class="theme" id="semConexao">
+        <h2>Sem conexão</h2>
+        <div
+          class="title"
+          data-phrase="Atrás do roteador (aquele aparelho com atenas), tem uma entrada WAN.
+
+Tem um cabo que sai do outro aparelho sem antenas  e conecta na entrada WAN do roteador.
+        
+Você consegue tirar e colocá-lo na mesma entrada WAN?
+        
+Tem uma travinha na ponta do cabo, mas é só apertar que ele sai, não precisa fazer força.
+        "
+        >
+          Teste de cabo WAN (1º pt)
+        </div>
+        <div
+          class="title"
+          data-phrase="Atrás do roteador (o aparelho com antenas), há uma entrada WAN.
+
+Deve ter um cabo que sai de outro roteador e se conecta a essa entrada WAN.
+        
+Você consegue removê-lo e reconectá-lo na mesma entrada WAN?
+        
+Há uma trava na ponta do cabo, mas basta apertá-la para soltar o cabo, sem necessidade de força.
+        "
+        >
+          Teste de cabo WAN (2º pt)
+        </div>
+        <div
+          class="title"
+          data-phrase="Você deve ter um cabo do modem de fibra (aquele aparelho menor sem antenas) que se conecta a uma entrada WAN no seu roteador (o aparelho COM antenas)
+
+Você consegue inverter as pontas desse cabo?
+        
+Colocar a ponta que está no roteador na entrada do modem e a ponta do modem na entrada WAN do roteador
+        
+        "
+        >
+          Inversão de cabo de rede
+        </div>
+        <div
+          class="title"
+          data-phrase="Vou pedir para você realizar um procedimento
+
+No aparelho menor sem antenas, tem um buraquinho escrito RESET na lateral, você vai precisar de um palito de dente para pressionar o botão dentro dele até as luzes se apagarem
+Você consegue fazer isso?
+        "
+        >
+          Reset
+        </div>
+      </section>
+      <section class="theme" id="oS">
+        <h2>O.S</h2>
+        <div
+          class="title"
+          data-phrase="Verifiquei que você passou em atendimento conosco ontem, e que já foi aberto uma Ordem de Serviço, conforme o atendente te informou o*PRAZO MÁXIMO* que a equipe tem para realizar o reparo é de no MÁXIMO 48 horas, no caso está dentro do prazo.
+
+Mas de qualquer forma, irei passar para o setor responsável e solicitar urgência para resolvermos isso quanto antes
+        
+Agora é só aguardar o contato do setor de agendamento para confirmar certinho a chegada do técnico 😉
+        "
+        >
+          Cliente solicita posicionamento
+        </div>
+      </section>
+      <section class="theme" id="tratativas">
+        <h2>Tratativas</h2>
+        <div
+          class="title"
+          data-phrase="POSSÍVEL SOLUÇÃO:
+> VERIFICAR CABO DROP 
+> VERIFICAR EQUIPAMENTOS ÓPTICOS E CONECTORES
+        
+- Cliente entrou em contato via Smart
+- informa estar sem conexão 
+- verificado cod 1 no gerenciador
+- ONU com led vermelho
+- solicitei que cliente realizasse reset de ONU, sem melhora
+- cliente ciente da necessidade de O.S
+- prazo informado
+- protocolo enviado
+- atendimento finalizado"
+        >
+          P.S + Tratativa - Link Loss
+        </div>
+        <div
+          class="title"
+          data-phrase="POSSÍVEL SOLUÇÃO:
+> Realizar análise de espectro
+> Verificar equipamentos ópticos
+> Realizar teste de velocidade junto ao cliente (Levar Notebook Giga)
+> Realizar testes nos aplicativos que cliente está com dificuldade em acessar
+> Orientar sobre uso da rede 2.4G e 5G"
+        >
+          P.S - Lentidão
+        </div>
+      </section>
+
+      <section class="theme" id="onuForcaTarefa">
+        <h2>ONU Força Tarefa</h2>
+        <div
+          class="title"
+          data-phrase="Boa tarde, NOME, tudo bem? O motivo do meu contato é referente a sua conexão. Verificamos que sua conexão está inativa há um tempo. Gostaria de saber se aconteceu alguma coisa ou se podemos te ajudar em algo?"
+        >
+          Motivo de contato
+        </div>
+      </section>
+      <section class="theme" id="oscilacao">
+        <h2>Oscilação</h2>
+        <div
+          class="title"
+          data-phrase="Constam símbolos no sinal wifi do seu dispositivo como '!', 'X' ou
+          'Conectado, sem internet'?"
+        >
+          Símbolos
+        </div>
+        <div
+          class="title"
+          data-phrase="O problema está acontecendo em um ou mais cômodos do local?"
+        >
+          Um ou mais cômodos
+        </div>
+      </section>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
