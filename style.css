@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #efecf9;
   display: flex;
   justify-content: center;
 }
@@ -16,10 +16,14 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .theme {
  display: flex;
  flex-direction: column;
  text-align: center;
+}
+h2{
+  text-shadow: rgba(0, 0, 0, 0.481) 2px 1px 2px;
 }
 .title {
   font-weight: bold;
@@ -27,4 +31,8 @@ body {
   color: #007bff;
   margin-bottom: 10px;
   display: inline-block;
+}
+.title:hover{
+  color: #a0c5e8;
+  text-shadow: rgba(0, 0, 0, 0.432) 1px 1px 1px;
 }
