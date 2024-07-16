@@ -1,5 +1,16 @@
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 body {
   font-family: Arial, sans-serif;
+  font-size: 12pt;
   margin: 0;
   max-height: max-content;
   padding: 20px;
@@ -7,6 +18,29 @@ body {
   display: flex;
   justify-content: center;
 }
+#msgCopiado {
+  background-color: palegreen;
+  position: absolute;
+  font-weight: bold;
+  text-shadow: #ffffffa5 1px 1px 3px;
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  padding: 3px;
+  box-shadow: rgba(0, 0, 0, 0.371) 1px 2px 3px;
+  z-index: 1;
+  top: 1%;
+  left: 2%;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+
+ 
+  
+  animation: 3s fadeInOut ease-in;
+  
+}
+
 .container {
   max-width: max-content;
   max-height: max-content;
@@ -17,14 +51,17 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  z-index: 2;
+
 }
 
 .theme {
- display: flex;
- flex-direction: column;
- text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
-h2{
+h2 {
   text-shadow: rgba(0, 0, 0, 0.481) 2px 1px 2px;
 }
 .title {
@@ -34,7 +71,7 @@ h2{
   margin-bottom: 10px;
   display: inline-block;
 }
-.title:hover{
+.title:hover {
   color: #a0c5e8;
   text-shadow: rgba(0, 0, 0, 0.432) 1px 1px 1px;
 }

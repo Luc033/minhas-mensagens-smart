@@ -9,6 +9,7 @@
   </head>
   <body>
     <div class="container">
+      <span id="msgCopiado" style="display:none"> <p>Copiado com sucesso!</p></span>
       <section class="theme" id="saudacao">
         <h2>Saudação</h2>
         <div class="title" data-phrase="Olá, NOME, como posso te ajudar">
@@ -80,7 +81,7 @@
         </div>
         <div
           class="title"
-          data-phrase="Você já testou a navegação de sua rede em outro aplicativo, por exemplo, no Youtube, se o problema está acontecendo também?"
+          data-phrase="Você já testou a navegação de sua rede em outro aplicativo, por exemplo, no Youtube, o problema está acontecendo também?"
         >
           Se já testou outro app
         </div>
@@ -94,23 +95,7 @@
       </section>
       <section class="theme" id="outros">
         <h2>Outros</h2>
-        <div
-          class="title"
-          data-phrase="- orientada que é recomendado fazer testes de velocidade em dispositivo cabeado
-- explicado diferença entre ambas as redes
-- caso a mesma não consiga fazer teste via cabo, podemos tentar fazer via wifi 5G, mas não é recomendado"
-        >
-          Teste de velocidade
-        </div>        
-        <div
-          class="title"
-          data-phrase="Contato: XXX - Telefone: XXX
-          
-Cliente fez parte do problema massivo XXXX, necessário aplicar desconto na fatura.
-Problema se iniciou em xx/xx/xxxx. Necessário aguardar data de conclusão. (caso tenha sido concluído, informar data de término para ser feito o calculo)."
-        >
-         Desconto
-        </div>
+        
         <div
           class="title"
           data-phrase="A maioria de nossos atendimentos são solucionados de forma remota, por isso, antes de enviarmos um técnico ao local, eu precisarei verificar o que está acontecendo na sua rede remotamente e tentar solucioná-lo 🤗"
@@ -253,27 +238,23 @@ Gostaria de saber se você está conseguindo conectar na rede wifi ou se está a
         </div>
         <div
           class="title"
-          data-phrase="Atrás do roteador (aquele aparelho com atenas), tem uma entrada WAN.
+          data-phrase="Atrás do roteador (o aparelho com antenas), existe uma entrada com nome WAN.
 
-Tem um cabo que sai do outro aparelho sem antenas  e conecta na entrada WAN do roteador.
-        
-Você consegue tirar e colocá-lo na mesma entrada WAN?
-        
-Tem uma travinha na ponta do cabo, mas é só apertar que ele sai, não precisa fazer força.
-        "
+Nesta entrada deve ter um cabo de rede conectado, peço que desconecte e reconecte ele por gentileza. Tem uma travinha na ponta do cabo, mas é só apertar que ele sai, não precisa fazer força.
+          
+Caso queira pode me encaminhar fotos que te ajudo a realizar o teste!🤗"
         >
           Teste de cabo WAN (1º pt)
         </div>
         <div
           class="title"
-          data-phrase="Atrás do roteador (o aparelho com antenas), há uma entrada WAN.
+          data-phrase="Atrás do roteador (o aparelho com antenas), há uma entrada com nome WAN.
 
 Deve ter um cabo que sai de outro roteador e se conecta a essa entrada WAN.
-        
-Você consegue removê-lo e reconectá-lo na mesma entrada WAN?
-        
-Há uma trava na ponta do cabo, mas basta apertá-la para soltar o cabo, sem necessidade de força.
-        "
+          
+Peço que desconecte e reconecte ele por gentileza. Há uma trava na ponta do cabo, mas basta apertá-la para soltar o cabo, sem necessidade de força.
+          
+Caso queira pode me encaminhar fotos que te ajudo a realizar o teste!🤗"
         >
           Teste de cabo WAN (2º pt)
         </div>
@@ -291,27 +272,11 @@ Colocar a ponta que está no roteador na entrada do modem e a ponta do modem na 
         </div>
         <div
           class="title"
-          data-phrase="Vou pedir para você realizar um procedimento
+          data-phrase="Você poderia efetuar um teste para verificarmos se sua conexão retorna?😉
 
-No aparelho menor sem antenas, tem um buraquinho escrito RESET na lateral, você vai precisar de um palito de dente para pressionar o botão dentro dele até as luzes se apagarem
-Você consegue fazer isso?
-        "
+No aparelho menor sem antenas, tem um buraquinho escrito RESET na lateral, você vai precisar de um palito de dente para pressionar o botão dentro dele até as luzes se apagarem"
         >
           Reset
-        </div>
-      </section>
-      <section class="theme" id="oS">
-        <h2>O.S</h2>
-        <div
-          class="title"
-          data-phrase="Verifiquei que você passou em atendimento conosco ontem, e que já foi aberto uma Ordem de Serviço, conforme o atendente te informou o*PRAZO MÁXIMO* que a equipe tem para realizar o reparo é de no MÁXIMO 48 horas, no caso está dentro do prazo.
-
-Mas de qualquer forma, irei passar para o setor responsável e solicitar urgência para resolvermos isso quanto antes
-        
-Agora é só aguardar o contato do setor de agendamento para confirmar certinho a chegada do técnico 😉
-        "
-        >
-          Cliente solicita posicionamento
         </div>
       </section>
       <section class="theme" id="tratativas">
@@ -344,6 +309,23 @@ Agora é só aguardar o contato do setor de agendamento para confirmar certinho 
   - TIME: SINCRONIZADO"
         >
          Config roteador
+        </div>
+        <div
+          class="title"
+          data-phrase="- orientada que é recomendado fazer testes de velocidade em dispositivo cabeado
+- explicado diferença entre ambas as redes
+- caso a mesma não consiga fazer teste via cabo, podemos tentar fazer via wifi 5G, mas não é recomendado"
+        >
+          Teste de velocidade
+        </div>        
+        <div
+          class="title"
+          data-phrase="Contato: XXX - Telefone: XXX
+          
+Cliente fez parte do problema massivo XXXX, necessário aplicar desconto na fatura.
+Problema se iniciou em xx/xx/xxxx. Necessário aguardar data de conclusão. (caso tenha sido concluído, informar data de término para ser feito o calculo)."
+        >
+         Desconto
         </div>
         <div
           class="title"
@@ -419,6 +401,21 @@ Agora é só aguardar o contato do setor de agendamento para confirmar certinho 
           Rompimento
         </div>
       </section>
+
+      <section class="theme" id="oS">
+        <h2>O.S</h2>
+        <div
+          class="title"
+          data-phrase="Verifiquei que você passou em atendimento conosco ontem, e que já foi aberto uma Ordem de Serviço, conforme o atendente te informou o*PRAZO MÁXIMO* que a equipe tem para realizar o reparo é de no MÁXIMO 48 horas, no caso está dentro do prazo.
+
+Mas de qualquer forma, irei passar para o setor responsável e solicitar urgência para resolvermos isso quanto antes
+        
+Agora é só aguardar o contato do setor de agendamento para confirmar certinho a chegada do técnico 😉
+        "
+        >
+          Cliente solicita posicionamento
+        </div>
+      </section>
       <section class="theme" id="smartAtivo">
         <h2>Smart Ativo</h2>
         <div class="title" data-phrase="Bom dia, nome, tudo bem?
@@ -450,16 +447,22 @@ Você poderia retornar o contato quando estiver no local?
         <h2>Oscilação</h2>
         <div
           class="title"
-          data-phrase="Constam símbolos no sinal wifi do seu dispositivo como '!', 'X' ou
-          'Conectado, sem internet'?"
+          data-phrase="Quando o problema acontece, aparece algum símbolos no sinal wifi do seu dispositivo? Como '!', 'X' ou'Conectado, sem internet'"
         >
           Símbolos
         </div>
         <div
           class="title"
-          data-phrase="O problema está acontecendo em um ou mais cômodos do local?"
+          data-phrase="Esse problema acontece quando você está no mesmo cômodo em que seu roteador fica?"
         >
-          Um ou mais cômodos
+          Ocorre no mesmo cômodo
+        </div>
+        
+        <div
+          class="title"
+          data-phrase="Neste caso, em quais locais da sua casa você sente que esse problema acontece?"
+        >
+          Em quais cômodos 
         </div>
         
       </section>
