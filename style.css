@@ -1,15 +1,17 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
+  max-height: max-content;
   padding: 20px;
   background-color: #efecf9;
   display: flex;
   justify-content: center;
 }
 .container {
-  max-width: 100%;
+  max-width: max-content;
+  max-height: max-content;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   grid-gap: 3em;
   background-color: #fff;
   padding: 20px;
