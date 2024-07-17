@@ -1,10 +1,11 @@
 /* CORES */ 
 :root{
-  --cor-fundo: #001233;
-  --cor-secundaria:#fff;
-  --cor-letra:#0353a4;
-  --cor-hover:#0466c8;
-  --cor-msg-copiado: #80ed99;
+  --cor-fundo: #003049;
+  --cor-secundaria:#f8f5ed;
+  --cor-letra:#780000;
+  --cor-titulo:#470202;
+  --cor-hover:#C1121F;
+  --cor-msg-copiado: #69c24b;
 }
 
 @keyframes fadeInOut {
@@ -45,10 +46,7 @@ body {
   border-radius: 8px;
   align-items: center;
   justify-content: center;
-
- 
-  
-  animation: 3s fadeInOut ease-in;
+  animation: 3s fadeInOut ease-in-out;
   
 }
 
@@ -66,6 +64,8 @@ body {
 
 }
 
+
+
 .theme {
   display: flex;
   flex-direction: column;
@@ -73,11 +73,12 @@ body {
 }
 h2 {
   text-shadow: rgba(0, 0, 0, 0.481) 2px 1px 2px;
+  color: var(--cor-titulo);
 }
 .title {
   font-weight: bold;
   cursor: pointer;
-  color: #007bff;
+  color: var(--cor-letra);
   margin-bottom: 10px;
   display: inline-block;
 }
