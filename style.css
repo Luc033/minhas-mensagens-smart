@@ -1,10 +1,11 @@
 /* CORES */ 
 :root{
-  --cor-fundo: #003049;
-  --cor-secundaria:#f8f5ed;
-  --cor-letra:#780000;
-  --cor-titulo:#470202;
-  --cor-hover:#C1121F;
+  --cor-fundo: #1e2749;
+  --cor-secundaria:#fafaff;
+  --cor-letra:#30343f;
+  --cor-titulo:#1e2749;
+  --cor-hover:#d79ff3;
+  --cor-hover-div:#e4d9ff1f;
   --cor-msg-copiado: #69c24b;
 }
 
@@ -28,6 +29,8 @@ body {
   display: flex;
   justify-content: center;
   z-index: 2;
+  background: url(img/bg-2.jpg) no-repeat center fixed;
+  background-size: cover;
 
 }
 #msgCopiado {
@@ -56,11 +59,12 @@ body {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   grid-gap: 3em;
-  background-color: var(--cor-secundaria);
-  padding: 20px;
+  
+  background-image: linear-gradient(120deg, #fdfbfbf1 0%, #ebedeedd 100%);  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 15px rgb(255, 255, 255);
   position: absolute;
+
 
 }
 
@@ -83,6 +87,7 @@ h2 {
   display: inline-block;
 }
 .title:hover {
+  background: rad-gradient(to right, var(--cor-hover-div));
   color: var(--cor-hover);
   text-shadow: rgba(0, 0, 0, 0.432) 1px 1px 1px;
 }
