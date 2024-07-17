@@ -1,3 +1,12 @@
+/* CORES */ 
+:root{
+  --cor-fundo: #001233;
+  --cor-secundaria:#fff;
+  --cor-letra:#0353a4;
+  --cor-hover:#0466c8;
+  --cor-msg-copiado: #80ed99;
+}
+
 @keyframes fadeInOut {
   0%,
   100% {
@@ -14,12 +23,14 @@ body {
   margin: 0;
   max-height: max-content;
   padding: 20px;
-  background-color: #efecf9;
+  background-color: var(--cor-fundo);
   display: flex;
   justify-content: center;
+  z-index: 2;
+
 }
 #msgCopiado {
-  background-color: palegreen;
+  background-color: var(--cor-msg-copiado);
   position: absolute;
   font-weight: bold;
   text-shadow: #ffffffa5 1px 1px 3px;
@@ -47,12 +58,11 @@ body {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
   grid-gap: 3em;
-  background-color: #fff;
+  background-color: var(--cor-secundaria);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: absolute;
-  z-index: 2;
 
 }
 
@@ -72,6 +82,6 @@ h2 {
   display: inline-block;
 }
 .title:hover {
-  color: #a0c5e8;
+  color: var(--cor-hover);
   text-shadow: rgba(0, 0, 0, 0.432) 1px 1px 1px;
 }
