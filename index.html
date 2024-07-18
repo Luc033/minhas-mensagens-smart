@@ -8,7 +8,9 @@
     <title>Scripts</title>
   </head>
   <body>
-    <main>
+    <div class="bg">
+      <img src="img/bg-2.jpg" alt="">
+    </div>
       <span id="msgCopiado" style="display:none"> <p>Copiado com sucesso!</p></span>
       <div class="container">
         <section class="theme" id="saudacao">
@@ -306,16 +308,30 @@
         - 5G INTERVALO: LONGO
         - WPS: DES
         - LINK+: DES
-        - TIME: SINCRONIZADO
-        - ROTEADOR E ONU REINICIADOS
-        - Tx Beamforming: HAB	
-        - LDPC: HAB
-        - STBC: HAB
-        - BG Proteção: HAB
-        - QoS (Qualidade do Serviço): HAB
         - TIME: SINCRONIZADO"
           >
-           Config roteador
+           Config - ONT
+          </div>
+          <div
+            class="title"
+            data-phrase="
+      - 1º PONTO:
+        - UPNP:HAB
+        - IPV6: DES
+        - SEGURANÇA: HÍBRIDA
+        - 2.4 CANAL: AUTO
+        - 2.4G LARGURA: 20MHZ
+        - WPS: DES
+        - TIME: SINCRONIZADO
+        - ROTEADOR E ONU REINICIADOS
+        - TX BEAMFORMING: HAB	
+        - LDPC: HAB
+        - STBC: HAB
+        - BG PROTEÇÃO: HAB
+        - QOS (QUALIDADE DO SERVIÇO): HAB
+        - TIME: SINCRONIZADO"
+          >
+           Config - GREATEK
           </div>
           <div
             class="title"
@@ -366,19 +382,9 @@
             class="title"
             data-phrase="POSSÍVEL SOLUÇÃO:
       > VERIFICAR CABO DROP 
-      > VERIFICAR EQUIPAMENTOS ÓPTICOS E CONECTORES
-          
-      - Cliente entrou em contato via Smart
-      - informa estar sem conexão 
-      - verificado cod 1 no gerenciador
-      - ONU com led vermelho
-      - solicitei que cliente realizasse reset de ONU, sem melhora
-      - cliente ciente da necessidade de O.S
-      - prazo informado
-      - protocolo enviado
-      - atendimento finalizado"
+      > VERIFICAR EQUIPAMENTOS ÓPTICOS E CONECTORES"
           >
-            P.S + Tratativa - Link Loss
+            P.S - Link Loss
           </div>
           <div
             class="title"
@@ -473,7 +479,6 @@
       
         </section>
       </div>
-    </main>
     <script src="script.js"></script>
   </body>
 </html>
