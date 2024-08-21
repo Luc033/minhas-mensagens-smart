@@ -1,0 +1,50 @@
+
+
+-> ATENDIMENTO ENCERRADO POR FALTA DE CONTATO
+-- TENDO EM VISTA DIVERSAS TENTATIVAS DE CONTATO SEM SUCESSO, ATENDIMENTO ENCERRADO POR FALTA DE CONTATO COM CLIENTE
+
+-> ATENDIMENTO ENCERRADO POIS CLIENTE NÃO RETORNOU
+-- TENDO EM VISTA QUE CLIENTE NÃO RETORNOU CONTATO CONFORME COMBINADO COM A MESMA, ATENDIMENTO ENCERRADO, AGUARDANDO RETORNO DE CONTATO
+
+-> P.S + TRATATIVA - O.S PREVENTIVA
+— Tendo em vista diversas tentativas de contato sem sucesso, necessário o.s preventiva
+OBS.: EFETUADO ONU FORÇAR TAREFA, O.S PREVENTIVA ABERTA SEM CONTATO COM CLIENTE
+OBS.: NECESSÁRIO CONTATO COM CLIENTE
+POSSÍVEL SOLUÇÃO:
+> VERIFICAR CABO DROP
+> VERIFICAR EQUIPAMENTOS ÓPTICOS E CONECTORES
+
+
+-> AGUARDAR CONTATO DO AGENDAMENTO
+Peço que aguarde o contato do setor de agendamento, pois irão te contatar para confirmar o horário certinho 
+
+
+-> SERVIDOR NTP 
+time.nist.gov
+time-nw.nist.gov
+
+-> QUANDO CLIENTE RECLAMA DA TAXA 
+Como está frisado na mensagem, isso é apenas um protocolo e se aplica apenas em casos de MAU USO DA PARTE DO CLIENTE, pois somente o técnico no local poderá determinar alguma cobrança adicional. 💙  
+
+-> QUANDO AVALIAM MAS NÃO COLOCA MEU NOME 
+Muito obrigada pela avaliação 😁, verifiquei que você me avaliou no Google, fico muito feliz. Mas para que a sua avaliação seja contabilizada, você poderia editar o comentário e escrever "Ricardo"? 😓
+
+-> QUANDO AVALIAM  
+Muito obrigada pela avaliação 😁, verifiquei sua mensagem e fico muito feliz pois isso me ajuda muito 😊
+
+-> 
+- verificado e informado ao cliente que as configurações da sua rede estão dentro do padrão, sinais da fibra estão bons e não consta quedas significativas nos últimos 30 dias
+
+-> TROCA PPPOE
+-- Efetuado troca de PPPoE com sucesso
+-- Mapeamento inserido com sucesso
+-- Senha do roteador trocada com sucesso
+
+-> teste de velocidade
+No caso, não é recomendo fazer teste de velocidade via wifi, devido a esse tipo de tecnologia sofrer de interferências e os dispositivos conectados não serem capazes de processar todas os dados transmitidos pela rede. 
+Inclusive, essa rede wifi que foi utilizada,  é uma tecnologia de rede wifi 2.4G, esse tipo de rede tem uma limitação maior ainda para fazer esse tipo de teste.
+O ideal é fazer teste de velocidade em um computador com placa de rede gigabit e via cabo, pois dessa forma, os resultados serão mais fiéis do que está chegando aí de fato.
+Se você possuir um cabo, posso estar te ajudando a realizar esse teste para verificarmos certinho a sua conexão 😉💙
+
+-> obrigado
+Obrigado por confirmar. Já estou verificando o seu cadastro.

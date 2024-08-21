@@ -85,6 +85,15 @@ body {
   background: no-repeat center fixed;
   
 }
+
+.container > :nth-child(-n + 4){
+  margin-bottom: 0.5em;
+}
+section{
+  padding: 0.3em;
+  background-image: linear-gradient(90deg, #ffffff12 0%, #3d3d3d0c 100%);
+  border-radius: 1em;
+}
 #msgCopiado {
   background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 150%);
   position: absolute;
@@ -107,25 +116,43 @@ body {
 .container {
   max-width: max-content;
   max-height: max-content;
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  grid-gap: 3em;
-
+  display: grid ;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 0 1em;
   background-image: linear-gradient(120deg, #fdfbfbf1 0%, #ebedeedd 100%);
-  padding: 20px;
+  padding: 1em;
   border-radius: 10px;
   box-shadow: 1px 1px 15px rgb(255, 255, 255);
   position: absolute;
+  
+}
+
+.sub-container{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 0 0.2em;
+}
+
+.sub-container .title {
+  padding: 0.1em;
 }
 
 .theme {
   display: flex;
   flex-direction: column;
-  text-align: center;
 }
 h2 {
+  text-align: center;
   text-shadow: rgba(0, 0, 0, 0.481) 2px 1px 2px;
   color: var(--cor-titulo);
+}
+#saudacao, #lentidao, #outros, #smartAtivo, #oS, #tratativas {
+  border-right: rgba(0, 0, 0, 0.094) dashed 1px;
+  
+}
+#saudacao, #lentidao, #outros, #semConexao{
+  border-bottom: rgba(0, 0, 0, 0.03) dashed 1px;
+  
 }
 .title {
   font-weight: bold;
@@ -133,6 +160,8 @@ h2 {
   color: var(--cor-letra);
   margin-bottom: 10px;
   display: inline-block;
+  text-align: left;
+  
 }
 .title:hover {
   background: rad-gradient(to right, var(--cor-hover-div));
