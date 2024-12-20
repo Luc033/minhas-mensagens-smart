@@ -1,0 +1,22 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36" version="24.7.5">
+  <diagram name="Página-1" id="aigTysGRuM5EPciHBeEm">
+    <mxGraphModel dx="780" dy="496" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CX2MEwYmPb844hXcKHQV-1" value="Script" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="160" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="CX2MEwYmPb844hXcKHQV-2" value="- id:Long&lt;br&gt;- saudacao:List&amp;lt;String&amp;gt;&lt;div&gt;- lentidao:List&amp;lt;String&amp;gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- outros:List&amp;lt;String&amp;gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- semConexao:List&amp;lt;String&amp;gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- smartAtivo:List&amp;lt;String&amp;gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- oS:List&amp;lt;String&amp;gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- tratativas:List&amp;lt;String&amp;gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- oscilacao:List&amp;lt;String&amp;gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="CX2MEwYmPb844hXcKHQV-1">
+          <mxGeometry y="26" width="160" height="154" as="geometry" />
+        </mxCell>
+        <mxCell id="CX2MEwYmPb844hXcKHQV-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="CX2MEwYmPb844hXcKHQV-1">
+          <mxGeometry y="180" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="CX2MEwYmPb844hXcKHQV-4" value="+ get(): List&amp;lt;String&amp;gt;&lt;br&gt;+ set():void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="CX2MEwYmPb844hXcKHQV-1">
+          <mxGeometry y="188" width="160" height="52" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
