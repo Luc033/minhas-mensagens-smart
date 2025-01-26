@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="bg">
-      <img src="img/bg-2.jpg" alt="" />
+      <img class="bg-img-animado" src="img/bg-2.jpg" alt="" />
     </div>
     <span id="msgCopiado" style="display: none">
       <p>Copiado com sucesso!</p></span
@@ -404,46 +404,9 @@ Peço que aguarde o contato do setor de agendamento para confirmar o horário ce
         <h2>Tratativas</h2>
         <div class="sub-container">
           <div
-            class="title"
-            data-phrase="1º PONTO:
-          - BLINDING OPTIONS: LAN 1 ATÉ LAN 4 > HAB / SSID 1 > HAB / SSID 5 > HAB  
-          - NAT: FULL CONE
-          - ROUTE: IPV4 E IPV6 PADRONIZADOS
-          - UPNP:HAB
-          - IPV6: DES
-          - SEGURANÇA: HÍBRIDA
-          - 2.4 CANAL: AUTO
-          - 2.4G LARGURA: 20MHZ
-          - 2.4G INTERVALO: LONGO
-          - 5G CANAL: AUTO
-          - 5G LARGURA: 40MHZ
-          - 5G INTERVALO: LONGO
-          - WPS: DES
-          - LINK+: DES
-          - DNS: 8.8.8.8 / 8.8.4.4
-          - TIME: SINCRONIZADO
-          - ROTEADOR REINICIADOS"
+            class="title" onclick="abrirConfiguracoes()"
           >
-            Config - ONT
-          </div>
-          <div
-            class="title"
-            data-phrase="2º PONTO:
-          - UPNP:HAB
-          - IPV6: DES
-          - SEGURANÇA: HÍBRIDA
-          - 2.4 CANAL: AUTO
-          - 2.4G LARGURA: 20MHZ
-          - WPS: DES
-          - TX BEAMFORMING: HAB	
-          - LDPC: HAB
-          - STBC: HAB
-          - BG PROTEÇÃO: HAB
-          - QOS (QUALIDADE DO SERVIÇO): HAB
-          - TIME: SINCRONIZADO
-          - ROTEADOR REINICIADOS"
-          >
-            Config - GREATEK
+            Configurações
           </div>
           <div
             class="title"
@@ -692,6 +655,33 @@ OBS.: Client pediu urgência"
         </div>
       </section>
     </div>
+    <section id="configuracoesSection" class="configuracoes">
+      <div class="div-config">
+        <h1>Configurações de roteador</h1>
+        <h2>Pontos adicionais</h2>
+        <div class="ptDiv">
+          <span><input type="radio" name="pontos" id="nenhumPt" value="- configurações realizadas:"> <label for="nenhumPt">Nenhum</label></span>
+          <span><input type="radio" name="pontos" id="primeiroPt" value="- configurações realizadas no 1º ponto:"> <label for="primeiroPt">Primeiro</label></span>
+          <span><input type="radio" name="pontos" id="segundoPt" value="- configurações realizadas no 2º ponto:"> <label for="segundoPt">Segundo</label></span>
+          <span><input type="radio" name="pontos" id="terceiroPt" value="- configurações realizadas no 3º ponto:"> <label for="terceiroPt">Terceiro</label></span>
+          <span><input type="radio" name="pontos" id="quartoPt" value="- configurações realizadas no 4º ponto:"> <label for="quartoPt">Quarto</label></span>
+          <span><input type="radio" name="pontos" id="quintoPt" value="- configurações realizadas no 5º ponto:"> <label for="quintoPt">Quinto</label></span>
+        </div>
+        <div class="dropdownContainer">
+          <button onclick="dropdownRoteadores()" class="dropRoteadores" id="btnDrop"><span class="text dropRoteadoresTxt">Selecionar roteador</span></button>
+          <div id="dropdownRoteadoresContentDiv" class="dropdown-content">
+            <button class="btnDropConfigContent" id="btnConfigOnt" onclick="exibirConfig(1)"><span class="text">ONT</span></button>
+            <button class="btnDropConfigContent" id="btnConfigGreatek" onclick="exibirConfig(2)" ><span class="text">Greatek</span></button>
+            <button class="btnDropConfigContent" id="btnConfigOutros" onclick="exibirConfig(3)"><span class="text">Outros roteadores</span></button>
+          </div>
+          <div id="resultadoConfigDiv"></div>
+        </div>
+                
+
+        <button id="btnCopiarConfig" onclick="copiarConfig()">Copiar</button>
+      </div>
+    </section>
+
     <script src="script.js"></script>
   </body>
 </html>

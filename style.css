@@ -48,10 +48,10 @@
 }
 @keyframes zoom {
   0% {
-      transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
   }
   100% {
-      transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.2);
   }
 }
 
@@ -80,16 +80,15 @@ body {
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  animation: zoom 20s infinite alternate ease-in-out;  
+  animation: zoom 20s infinite alternate ease-in-out;
   margin: 0;
   background: no-repeat center fixed;
-  
 }
 
-.container > :nth-child(-n + 4){
+.container > :nth-child(-n + 4) {
   margin-bottom: 0.5em;
 }
-section{
+section {
   padding: 0.3em;
   background-image: linear-gradient(90deg, #ffffff12 0%, #3d3d3d0c 100%);
   border-radius: 1em;
@@ -116,7 +115,7 @@ section{
 .container {
   max-width: max-content;
   max-height: max-content;
-  display: grid ;
+  display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 0 1em;
   background-image: linear-gradient(120deg, #fdfbfbf1 0%, #ebedeedd 100%);
@@ -124,10 +123,9 @@ section{
   border-radius: 10px;
   box-shadow: 1px 1px 15px rgb(255, 255, 255);
   position: absolute;
-  
 }
 
-.sub-container{
+.sub-container {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 0 0.2em;
@@ -146,13 +144,19 @@ h2 {
   text-shadow: rgba(0, 0, 0, 0.481) 2px 1px 2px;
   color: var(--cor-titulo);
 }
-#saudacao, #lentidao, #outros, #smartAtivo, #oS, #tratativas {
+#saudacao,
+#lentidao,
+#outros,
+#smartAtivo,
+#oS,
+#tratativas {
   border-right: rgba(0, 0, 0, 0.094) dashed 1px;
-  
 }
-#saudacao, #lentidao, #outros, #semConexao{
+#saudacao,
+#lentidao,
+#outros,
+#semConexao {
   border-bottom: rgba(0, 0, 0, 0.03) dashed 1px;
-  
 }
 .title {
   font-weight: bold;
@@ -161,10 +165,226 @@ h2 {
   margin-bottom: 10px;
   display: inline-block;
   text-align: left;
-  
 }
 .title:hover {
   background: rad-gradient(to right, var(--cor-hover-div));
   color: var(--cor-hover);
   text-shadow: rgba(0, 0, 0, 0.432) 1px 1px 1px;
 }
+
+.configuracoes {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(32, 69, 138, 0.993) 16.3%,
+    rgba(0, 41, 118, 1) 100.2%
+  );
+  width: 50%;
+  top: 20vh;
+  height: auto;
+  z-index: 3;
+  padding: 1em;
+  color: #e0e0e3;
+}
+
+h1 {
+  font-size: 16pt;
+}
+
+h2 {
+  font-size: 14pt;
+}
+.configuracoes h1 {
+  text-align: center;
+  margin: 0 0 0.2em 0;
+  color: #ffffff;
+  text-shadow: white 0px 0px 5px;
+}
+
+.configuracoes h2 {
+  text-align: center;
+  margin-bottom: 0.6em;
+  color: #fafaff;
+}
+
+.div-config {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dropdownContainer {
+  margin: 1.5em 0;
+  border-radius: 6px;
+  background-color: #0c0038;
+  border: 5px solid #130469;
+  width: 100%;
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.dropRoteadores {
+  position: relative;
+  display: inline-block;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  line-height: 1em;
+  width: 100%;
+  padding: 3px;
+  background-color: rgb(90, 90, 90);
+  cursor: pointer;
+  color: #fafafa;
+  font-weight: bold;
+}
+
+.dropRoteadores span {
+  background-color: rgb(90, 90, 90);
+  padding: 8px 12px;
+  font-size: 12pt;
+
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+.dropdownRoteadoresContentDiv {
+  position: absolute;
+  display: none;
+  overflow: auto;
+  z-index: 3;
+}
+.ptDiv{
+  display: flex;
+  flex-direction: row;
+  margin-top: -8px;
+  justify-content: center;
+  align-items: center;
+}
+.ptDiv span{
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+}
+
+.ptDiv span input{
+  margin: 0 0.2em 0 1em;
+}
+
+/* Estilo básico do radio button */
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Estilo quando o radio button estiver checado */
+input[type="radio"]:checked {
+  background-color: #4CAF50;
+  border: 2px solid #388E3C;
+}
+
+/* Estilo do texto do label quando o radio button estiver checado */
+input[type="radio"]:checked + label {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.btnDropConfigContent {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.btnDropConfigContent:active,
+.btnDropConfigContent:hover {
+  outline: 0;
+}
+
+.btnDropConfigContent span {
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+  font-size: 12pt;
+}
+
+.btnDropConfigContent:hover span {
+  background: none;
+}
+
+.show {
+  display: block;
+}
+
+#resultadoConfigDiv {
+  display: none;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 0.5em 1em;
+  padding: 1em;
+}
+
+#resultadoConfigDiv span{
+  display: flex;
+}
+
+#resultadoConfigDiv span input[type="checkbox"]{
+  margin: 0 0.4em 0 0;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Estilo da checkbox quando ela estiver checada */
+input[type="checkbox"]:checked {
+  background-color: #4CAF50; /* Cor de fundo quando checada */
+  border: 2px solid #388E3C; /* Cor da borda quando checada */
+}
+
+/* Estilo do label quando o checkbox estiver checado */
+input[type="checkbox"]:checked + label {
+  color: #4CAF50; /* Muda a cor do texto do label */
+  font-weight: bold;
+}
+
+.configCheckboxSpan label:hover{
+  text-shadow: white 1px 1px;
+}
+#btnCopiarConfig {
+  align-items: center;
+  background: #f5f5fa;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 1px 3px 13px 0 #ffffff91, 7px 10px 9px 0 #1d0dca17;  box-sizing: border-box;
+  color: #2a1f62;
+  cursor: pointer;
+  font-size: 14pt;
+  justify-content: center;
+  padding: 0.3em;
+  width: 10em;
+  text-align: center;
+  transition: 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#btnCopiarConfig:hover {
+  background: #f8f8ff;
+  box-shadow: -2px -3px 6px 0px #ffffffba, -1px 1px 4px 0px #1d0dca17;}
+
+  
