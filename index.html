@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon" />
+    <script src="https://kit.fontawesome.com/2ca9804ec8.js" crossorigin="anonymous"></script>
     <title>Scripts</title>
   </head>
   <body>
+    <header>
+      <nav>
+        <i onclick="abrirConfiguracoes()" class="fa-solid fa-gear"></i>
+      </nav>
+    </header>
     <div class="bg">
       <img class="bg-img-animado" src="img/bg-2.jpg" alt="" />
     </div>
@@ -403,11 +409,6 @@ Peço que aguarde o contato do setor de agendamento para confirmar o horário ce
       <section class="theme" id="tratativas">
         <h2>Tratativas</h2>
         <div class="sub-container">
-          <div
-            class="title" onclick="abrirConfiguracoes()"
-          >
-            Configurações
-          </div>
           <div
             class="title"
             data-phrase="- realizou teste de velocidade no site XXX pelo dispositivo XXXX

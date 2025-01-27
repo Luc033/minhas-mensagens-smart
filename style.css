@@ -67,6 +67,47 @@ body {
   z-index: 2;
   overflow: hidden;
 }
+
+header {
+  position: absolute;
+  right: 96%;
+  top: 10%;
+  width: 2em;
+  height: 12em;
+  z-index: 1;
+}
+header nav i {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.fa-gear {
+  font-size: 40px; /* Tamanho do ícone */
+  color: #df00fd; /* Cor inicial */
+  text-shadow: rgba(250, 187, 252, 0.646) 0px 0px 8px;
+  animation: blink 1.5s infinite ease-in-out; /* Aplica a animação de piscar */
+  transition: transform 0.3s ease;
+}
+.fa-gear:hover {
+  animation: none; /* Remove o efeito de piscar */
+  transform: rotate(20deg); /* Gira ao passar o mouse */
+  color: rgb(174, 0, 255); /* Muda a cor no hover */
+  text-shadow: rgba(210, 144, 254, 0.788) 0px 0px 8px;
+  transition: transform 2s ease-in;
+}
+/* Define o efeito de piscar */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1; /* Totalmente visível */
+    transform: scale(1); /* Tamanho normal */
+  }
+  50% {
+    opacity: 0.8; /* Levemente transparente */
+    transform: scale(1.05); /* Aumenta levemente */
+  }
+}
+
 .bg {
   z-index: 0;
   margin: 0;
@@ -178,17 +219,14 @@ h2 {
   justify-content: center;
   align-items: center;
   position: relative;
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgba(32, 69, 138, 0.993) 16.3%,
-    rgba(0, 41, 118, 1) 100.2%
-  );
+  background-image: linear-gradient( 271.5deg,  rgb(182, 69, 243) 46.5%, rgb(151, 8, 151) 98.5%, rgba(187,187,187,1) 124.3% );
   width: 50%;
   top: 20vh;
   height: auto;
   z-index: 3;
   padding: 1em;
   color: #e0e0e3;
+  box-shadow: rgba(0, 0, 0, 0.516) 0px 2px 4px 1px;
 }
 
 h1 {
@@ -202,7 +240,7 @@ h2 {
   text-align: center;
   margin: 0 0 0.2em 0;
   color: #ffffff;
-  text-shadow: white 0px 0px 5px;
+  text-shadow: rgba(0, 0, 0, 0.548) 0px 0px 5px;
 }
 
 .configuracoes h2 {
@@ -220,8 +258,8 @@ h2 {
 .dropdownContainer {
   margin: 1.5em 0;
   border-radius: 6px;
-  background-color: #0c0038;
-  border: 5px solid #130469;
+  background-color: #2f0038;
+  border: 5px solid #660469;
   width: 100%;
 }
 
@@ -238,14 +276,14 @@ h2 {
   line-height: 1em;
   width: 100%;
   padding: 3px;
-  background-color: rgb(90, 90, 90);
+  background-color: rgb(61, 1, 87);
   cursor: pointer;
   color: #fafafa;
   font-weight: bold;
 }
 
 .dropRoteadores span {
-  background-color: rgb(90, 90, 90);
+  background-color: rgb(61, 1, 87);
   padding: 8px 12px;
   font-size: 12pt;
 
@@ -260,14 +298,14 @@ h2 {
   overflow: auto;
   z-index: 3;
 }
-.ptDiv{
+.ptDiv {
   display: flex;
   flex-direction: row;
   margin-top: -8px;
   justify-content: center;
   align-items: center;
 }
-.ptDiv span{
+.ptDiv span {
   display: flex;
   flex-direction: row;
   vertical-align: middle;
@@ -275,7 +313,7 @@ h2 {
   align-items: center;
 }
 
-.ptDiv span input{
+.ptDiv span input {
   margin: 0 0.2em 0 1em;
 }
 
@@ -288,13 +326,13 @@ input[type="radio"] {
 
 /* Estilo quando o radio button estiver checado */
 input[type="radio"]:checked {
-  background-color: #4CAF50;
-  border: 2px solid #388E3C;
+  background-color: #014903;
+  border: 2px solid #014903;
 }
 
 /* Estilo do texto do label quando o radio button estiver checado */
 input[type="radio"]:checked + label {
-  color: #4CAF50;
+  color: #014903;
   font-weight: bold;
 }
 
@@ -336,11 +374,11 @@ input[type="radio"]:checked + label {
   padding: 1em;
 }
 
-#resultadoConfigDiv span{
+#resultadoConfigDiv span {
   display: flex;
 }
 
-#resultadoConfigDiv span input[type="checkbox"]{
+#resultadoConfigDiv span input[type="checkbox"] {
   margin: 0 0.4em 0 0;
 }
 
@@ -352,17 +390,17 @@ input[type="checkbox"] {
 
 /* Estilo da checkbox quando ela estiver checada */
 input[type="checkbox"]:checked {
-  background-color: #4CAF50; /* Cor de fundo quando checada */
-  border: 2px solid #388E3C; /* Cor da borda quando checada */
+  background-color: #4caf50; /* Cor de fundo quando checada */
+  border: 2px solid #388e3c; /* Cor da borda quando checada */
 }
 
 /* Estilo do label quando o checkbox estiver checado */
 input[type="checkbox"]:checked + label {
-  color: #4CAF50; /* Muda a cor do texto do label */
+  color: #4caf50; /* Muda a cor do texto do label */
   font-weight: bold;
 }
 
-.configCheckboxSpan label:hover{
+.configCheckboxSpan label:hover {
   text-shadow: white 1px 1px;
 }
 #btnCopiarConfig {
@@ -370,7 +408,8 @@ input[type="checkbox"]:checked + label {
   background: #f5f5fa;
   border: 0;
   border-radius: 8px;
-  box-shadow: 1px 3px 13px 0 #ffffff91, 7px 10px 9px 0 #1d0dca17;  box-sizing: border-box;
+  box-shadow: 1px 3px 13px 0 #ffffff91, 7px 10px 9px 0 #1d0dca17;
+  box-sizing: border-box;
   color: #2a1f62;
   cursor: pointer;
   font-size: 14pt;
@@ -385,6 +424,5 @@ input[type="checkbox"]:checked + label {
 
 #btnCopiarConfig:hover {
   background: #f8f8ff;
-  box-shadow: -2px -3px 6px 0px #ffffffba, -1px 1px 4px 0px #1d0dca17;}
-
-  
+  box-shadow: -2px -3px 6px 0px #ffffffba, -1px 1px 4px 0px #1d0dca17;
+}
