@@ -88,19 +88,19 @@ function exibirConfig(param) {
   removerElementosFilhos("resultadoConfigDiv");
 
   let iptValorOnt = [
-    "BLINDING OPTIONS: LAN 1 ATÉ LAN 4 > HAB / SSID 1 > HAB / SSID 5 > HAB",
-    "NAT: FULL CONE",
-    "ROUTE: IPV4 E IPV6 PADRONIZADOS",
-    "UPNP:HAB",
-    "IPV6: DES",
-    "CRIPTOGRAFIA: HÍBRIDA",
-    "2.4 CANAL: FIXADO >> AUTO",
-    "2.4G LARGURA: 20MHZ",
-    "5G CANAL: FIXADO >> AUTO",
-    "5G LARGURA: 40MHZ",
-    "DNS: WSNET >> 8.8.8.8 / 8.8.4.4",
-    "TIME: SINCRONIZADO",
-    "ONT REINICIADA",
+    "  > BLINDING OPTIONS: LAN 1 ATÉ LAN 4 > HAB / SSID 1 > HAB / SSID 5 > HAB",
+    "  > NAT: FULL CONE",
+    "  > ROUTE: IPV4 E IPV6 PADRONIZADOS",
+    "  > UPNP:HAB",
+    "  > IPV6: DES",
+    "  > CRIPTOGRAFIA: HÍBRIDA",
+    "  > 2.4 CANAL: FIXADO >> AUTO",
+    "  > 2.4G LARGURA: 20MHZ",
+    "  > 5G CANAL: FIXADO >> AUTO",
+    "  > 5G LARGURA: 40MHZ",
+    "  > DNS: WSNET >> 8.8.8.8 / 8.8.4.4",
+    "  > TIME: SINCRONIZADO",
+    "  > ONT REINICIADA",
   ];
   let iMaxValueOnt = [
     "BLINDING OPTIONS",
@@ -120,21 +120,21 @@ function exibirConfig(param) {
 
   // Greatek
   let iptValorGreatek = [
-    "TX BEAMFORMING: HAB",
-    "LDPC: HAB",
-    "STBC: HAB",
-    "BG PROTEÇÃO: HAB",
-    "QOS: HAB",
-    "UPNP:HAB",
-    "IPV6: DES",
-    "CRIPTOGRAFIA: HÍBRIDA",
-    "2.4 CANAL: FIXADO >> AUTO",
-    "2.4G LARGURA: 20MHZ",
-    "5G CANAL: FIXADO >> AUTO",
-    "5G LARGURA: 40MHZ",
-    "DNS: WSNET >> 8.8.8.8 / 8.8.4.4",
-    "TIME: SINCRONIZADO",
-    "ROTEADOR E ONU REINICIADOS",
+    "  > TX BEAMFORMING: HAB",
+    "  > LDPC: HAB",
+    "  > STBC: HAB",
+    "  > BG PROTEÇÃO: HAB",
+    "  > QOS: HAB",
+    "  > UPNP:HAB",
+    "  > IPV6: DES",
+    "  > CRIPTOGRAFIA: HÍBRIDA",
+    "  > 2.4 CANAL: FIXADO >> AUTO",
+    "  > 2.4G LARGURA: 20MHZ",
+    "  > 5G CANAL: FIXADO >> AUTO",
+    "  > 5G LARGURA: 40MHZ",
+    "  > DNS: WSNET >> 8.8.8.8 / 8.8.4.4",
+    "  > TIME: SINCRONIZADO",
+    "  > ROTEADOR E ONU REINICIADOS",
   ];
   let iMaxValueGreatek = [
     "TX BEAMFORMING",
@@ -156,20 +156,20 @@ function exibirConfig(param) {
 
   // Outros
   let iptValorOutros = [
-    "UPNP:HAB",
-    "IPV6: DES",
-    "CRIPTOGRAFIA: HÍBRIDA",
-    "2.4 CANAL: FIXADO >> AUTO",
-    "2.4G LARGURA: 20MHZ",
-    "2.4G INTERVALO: CURTO >> LONGO",
-    "5G CANAL: FIXADO >> AUTO",
-    "5G LARGURA: 40MHZ",
-    "5G INTERVALO: CURTO >> LONGO",
-    "DNS: WSNET >> 8.8.8.8 / 8.8.4.4",
-    "TIME: SINCRONIZADO",
-    "WPS: DES",
-    "LINK+: DES",
-    "ROTEADOR E ONU REINICIADOS",
+    "  > UPNP:HAB",
+    "  > IPV6: DES",
+    "  > CRIPTOGRAFIA: HÍBRIDA",
+    "  > 2.4 CANAL: FIXADO >> AUTO",
+    "  > 2.4G LARGURA: 20MHZ",
+    "  > 2.4G INTERVALO: CURTO >> LONGO",
+    "  > 5G CANAL: FIXADO >> AUTO",
+    "  > 5G LARGURA: 40MHZ",
+    "  > 5G INTERVALO: CURTO >> LONGO",
+    "  > DNS: WSNET >> 8.8.8.8 / 8.8.4.4",
+    "  > TIME: SINCRONIZADO",
+    "  > WPS: DES",
+    "  > LINK+: DES",
+    "  > ROTEADOR E ONU REINICIADOS",
   ];
   let iMaxValueOutros = [
     "UPNP",
@@ -323,6 +323,15 @@ function copiarConfig() {
       montandoMsg.shift();
     }
 
+    desselecionarIptRadioPt();
+    let dropdownRoteadoresContentDiv = document.getElementById(
+      "dropdownRoteadoresContentDiv"
+    );
+    let resultadoConfigDiv = document.getElementById("resultadoConfigDiv");
+    let btnDrop = document.getElementById("btnDrop");
+    btnDrop.style.display = "flex";
+    resultadoConfigDiv.style.display = "none";
+    exibirConfig(menuRoteadorSelecionado);
     navigator.clipboard.writeText(msgConfigPronta);
     mostraImagem(msgCopiado);
   }
