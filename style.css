@@ -317,6 +317,39 @@ h2 {
   margin: 0 0.2em 0 1em;
 }
 
+.ptDiv span input:hover{
+  text-shadow: black 0px 0px 2px;
+}
+
+.ptDiv span:hover{
+  text-shadow: rgba(0, 0, 0, 0.607) 1px 1px 10px;
+}
+
+#selecionarTudoCheckbox{
+  color: green;
+  font-size: 16pt;
+  cursor: pointer;
+  text-shadow: black 0px 0px 1px;
+  margin-right: 0.4em;
+}
+
+#selecionarTudoCheckbox:hover{
+  color: rgb(29, 198, 29);
+}
+
+#desselecionarIpt{
+  color: rgb(202, 29, 29);
+  font-size: 16pt;
+  cursor: pointer;
+  text-shadow: black 0px 0px 1px;
+  margin-right: 1em;
+}
+
+#desselecionarIpt:hover{
+  color: rgb(239, 50, 50);
+
+}
+
 /* Estilo básico do radio button */
 input[type="radio"] {
   width: 20px;
@@ -326,14 +359,15 @@ input[type="radio"] {
 
 /* Estilo quando o radio button estiver checado */
 input[type="radio"]:checked {
-  background-color: #014903;
-  border: 2px solid #014903;
+  background-color: #4caf50;
+  border: 2px solid #4caf50;
 }
 
 /* Estilo do texto do label quando o radio button estiver checado */
 input[type="radio"]:checked + label {
-  color: #014903;
+  color: #4caf50;
   font-weight: bold;
+  text-shadow: black 0px 0px 2px;
 }
 
 .btnDropConfigContent {
@@ -401,8 +435,17 @@ input[type="checkbox"]:checked + label {
 }
 
 .configCheckboxSpan label:hover {
-  text-shadow: white 1px 1px;
+  text-shadow: rgba(231, 245, 230, 0.701) 0px 0px 4px;
 }
+
+.btnCopiarDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.22em;
+
+}
+
 #btnCopiarConfig {
   align-items: center;
   background: #f5f5fa;
@@ -426,3 +469,23 @@ input[type="checkbox"]:checked + label {
   background: #f8f8ff;
   box-shadow: -2px -3px 6px 0px #ffffffba, -1px 1px 4px 0px #1d0dca17;
 }
+
+#adiocionarPtIcon{
+  font-size: 2em;
+  text-shadow: #e8e6e649 1px 2px 6px ;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out ;
+}
+
+#adiocionarPtIcon:hover{
+  text-shadow: #ffffff5a 0px 0px 8px ;
+}
+
+.adiocionarPtIcon2{
+  font-size: 2em;
+  color: green;
+  text-shadow: #cdf9c2 0px 0px 2em ;
+  cursor: pointer;
+  transition: color 1s ease-in-out ;
+}
+

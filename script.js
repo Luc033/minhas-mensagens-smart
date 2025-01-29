@@ -1,8 +1,14 @@
+let montandoMsg = [];
+let menuRoteadorSelecionado = 0;
+
 const msgCopiado = document.getElementById("msgCopiado");
 document.querySelectorAll(".title").forEach((item) => {
   item.addEventListener("click", (event) => {
-    const phrase = event.target.getAttribute("data-phrase");
-    navigator.clipboard
+    
+    if(document.getElementById('configuracoesSection').style.display == "none"){
+      
+      const phrase = event.target.getAttribute("data-phrase");
+      navigator.clipboard
       .writeText(phrase)
       .then(() => {
         mostraImagem(msgCopiado);
@@ -10,6 +16,7 @@ document.querySelectorAll(".title").forEach((item) => {
       .catch((err) => {
         console.error("Erro ao copiar frase: ", err);
       });
+    }
   });
 });
 
@@ -20,12 +27,10 @@ function mostraImagem(element) {
   }, 3000);
 }
 
-function abrirConfiguracoes(){
-  const configuracoesSection = document.getElementById('configuracoesSection')
-
-  configuracoesSection.style.display = 'flex';
+function abrirConfiguracoes() {
+  const configuracoesSection = document.getElementById("configuracoesSection");
+  configuracoesSection.style.display = "flex";
 }
-
 
 function dropdownRoteadores() {
   document
@@ -47,6 +52,35 @@ function removerElementosFilhos(nomeElemento) {
   }
 }
 
+function selecionarTudoCheckbox() {
+  if (document.getElementsByName("configCheckboxIpt") != undefined) {
+    const configCheckboxIpt = document.getElementsByName("configCheckboxIpt");
+    for (let i = 0; i < configCheckboxIpt.length; i++) {
+      if (configCheckboxIpt[i].checked === false) {
+        configCheckboxIpt[i].checked = true;
+      }
+    }
+  } else {
+    alert("nop");
+  }
+}
+
+function desselecionarIptRadioPt() {
+  let pontos = document.getElementsByName("pontos");
+  for (let i = 0; i < pontos.length; i++) {
+    if (pontos[i].checked) {
+      pontos[i].checked = false;
+    }
+  }
+  if (document.getElementsByName("configCheckboxIpt") != undefined) {
+    const configCheckboxIpt = document.getElementsByName("configCheckboxIpt");
+    for (let i = 0; i < configCheckboxIpt.length; i++) {
+      if (configCheckboxIpt[i].checked) {
+        configCheckboxIpt[i].checked = false;
+      }
+    }
+  }
+}
 
 let msgConfig = "";
 function exibirConfig(param) {
@@ -127,8 +161,10 @@ function exibirConfig(param) {
     "CRIPTOGRAFIA: HÍBRIDA",
     "2.4 CANAL: FIXADO >> AUTO",
     "2.4G LARGURA: 20MHZ",
+    "2.4G INTERVALO: CURTO >> LONGO",
     "5G CANAL: FIXADO >> AUTO",
     "5G LARGURA: 40MHZ",
+    "5G INTERVALO: CURTO >> LONGO",
     "DNS: WSNET >> 8.8.8.8 / 8.8.4.4",
     "TIME: SINCRONIZADO",
     "WPS: DES",
@@ -141,8 +177,10 @@ function exibirConfig(param) {
     "CRIPTOGRAFIA",
     "2.4 CANAL",
     "2.4 LARGURA",
+    "2.4 INTERVALO",
     "5G CANAL",
     "5G LARGURA",
+    "5G INTERVALO",
     "DNS",
     "TIME",
     "WPS",
@@ -159,6 +197,7 @@ function exibirConfig(param) {
       iptValor = iptValorOnt;
       btnDrop.style.display = "none";
       btnConfigGreatek.style.display = "none";
+
       btnConfigOutros.style.display = "none";
       if (btnConfigOnt.ariaValueText == "ativado") {
         btnConfigOnt.ariaValueText = "";
@@ -166,8 +205,10 @@ function exibirConfig(param) {
         btnConfigGreatek.style.display = "flex";
         btnConfigOutros.style.display = "flex";
         resultadoConfigDiv.style.display = "none";
+        menuRoteadorSelecionado = 0;
       } else {
         btnConfigOnt.ariaValueText = "ativado";
+        menuRoteadorSelecionado = 1;
       }
       break;
     case 2:
@@ -182,8 +223,10 @@ function exibirConfig(param) {
         btnConfigOnt.style.display = "flex";
         btnConfigOutros.style.display = "flex";
         resultadoConfigDiv.style.display = "none";
+        menuRoteadorSelecionado = 0;
       } else {
         btnConfigGreatek.ariaValueText = "ativado";
+        menuRoteadorSelecionado = 2;
       }
       break;
     case 3:
@@ -198,8 +241,10 @@ function exibirConfig(param) {
         btnConfigOnt.style.display = "flex";
         btnConfigGreatek.style.display = "flex";
         resultadoConfigDiv.style.display = "none";
+        menuRoteadorSelecionado = 0;
       } else {
         btnConfigOutros.ariaValueText = "ativado";
+        menuRoteadorSelecionado = 3;
       }
       break;
     default:
@@ -212,6 +257,7 @@ function exibirConfig(param) {
     btnConfigOutros.ariaValueText == "ativado"
   ) {
     for (let i = 0; i < iMaxValue.length; i++) {
+      const radioPt = document.querySelector('input[name="pontos"]:checked');
       // Span
       let elementSpan = document.createElement("span");
       //elementSpan.className("configCheckboxDiv");
@@ -222,7 +268,14 @@ function exibirConfig(param) {
       elementIpt.type = "checkbox";
       elementIpt.setAttribute("name", "configCheckboxIpt");
       elementIpt.setAttribute("id", "configCheckboxIpt" + i);
-      elementIpt.value = iptValor[i];
+
+      if(iptValor[i] == "ROTEADOR E ONU REINICIADOS" && radioPt.value != "- configurações realizadas no 1º ponto:"){
+        elementIpt.value = "ROTEADOR REINICIADO";
+        console.log("Foi patrão: " + radioPt.value + " | Valor do ipt: " + elementIpt.value)
+      }else{ 
+        elementIpt.value = iptValor[i];
+      }
+            
 
       // Label
       let elementLbl = document.createElement("label");
@@ -238,14 +291,12 @@ function exibirConfig(param) {
   }
 }
 
-function copiarConfig() {
-  let montandoMsg = [];
-
-  // Verificando a seleção dos pontos adicionais
+function montarMensagem() {
+  // Verificando a seleção dos radios (pontos adicionais)
   const pontos = document.getElementsByName("pontos");
   for (let i = 0; i < pontos.length; i++) {
     if (pontos[i].checked) {
-      montandoMsg.push(pontos[i].value);
+      montandoMsg.push("\n" + pontos[i].value);
     }
   }
 
@@ -256,22 +307,99 @@ function copiarConfig() {
       montandoMsg.push("\n" + configCheckboxIpt[i].value);
     }
   }
+}
 
-  let msgConfigPronta = "";
- for (let i = 0; i < montandoMsg.length; i++) {
-    msgConfigPronta += montandoMsg[i];
-  
- }
-  console.log(msgConfigPronta);
-  navigator.clipboard.writeText(msgConfigPronta);
-  mostraImagem(msgCopiado);
+function copiarConfig() {
+  if (verificarMensagemVazia()) {
+    montarMensagem();
 
+    let msgConfigPronta = "";
+    0;
+    for (let i = 0; i < montandoMsg.length; i++) {
+      msgConfigPronta += montandoMsg[i];
+    }
+    console.log(montandoMsg);
+    while (montandoMsg.length > 0) {
+      montandoMsg.shift();
+    }
+
+    navigator.clipboard.writeText(msgConfigPronta);
+    mostraImagem(msgCopiado);
+  }
+}
+
+function adicionarConfigPontoAdicional() {
+  if (verificarMensagemVazia()) {
+    let adiocionarPtIcon = document.getElementById("adiocionarPtIcon");
+
+    // Mudando a cor do icon
+    adiocionarPtIcon.classList.toggle("adiocionarPtIcon2");
+    setTimeout(() => {
+      adiocionarPtIcon.classList.toggle("adiocionarPtIcon2");
+    }, 800);
+
+    // salvando as configurações selecionadas na variavel
+    console.log(montandoMsg);
+    montarMensagem();
+
+    //Remove as checkbox de configuração do roteador  e oculta a sua div
+    removerElementosFilhos("resultadoConfigDiv");
+    let dropdownRoteadoresContentDiv = document.getElementById(
+      "dropdownRoteadoresContentDiv"
+    );
+    let resultadoConfigDiv = document.getElementById("resultadoConfigDiv");
+    let btnDrop = document.getElementById("btnDrop");
+    btnDrop.style.display = "flex";
+    resultadoConfigDiv.style.display = "none";
+    exibirConfig(menuRoteadorSelecionado);
+
+    // Seleciona o próximo input radio dos pontos adiconais
+    let pontos = document.getElementsByName("pontos");
+    for (let i = 0; i < pontos.length; i++) {
+      if (pontos[i].checked) {
+        pontos[i].checked = false; // Desmarca o atual
+    
+        if (pontos[i + 1]) { // Verifica se o próximo existe
+          pontos[i + 1].checked = true; // Marca o próximo
+        } else {
+          console.log('erro'); // Último item, sem próximo
+        }
+    
+        break; // Sai do loop ao encontrar o item marcado
+      }
+    }
+    
+  }
+}
+
+function verificarMensagemVazia() {
+  let verificadorIpt = false;
+
+  const pontos = document.getElementsByName("pontos");
+  const configCheckboxIpt = document.getElementsByName("configCheckboxIpt");
+
+  for (let i = 0; i < pontos.length; i++) {
+    if(montandoMsg.length > 0){
+      verificadorIpt = true;
+
+    }
+    if (pontos[i].checked &&  (configCheckboxIpt[i].checked || configCheckboxIpt[i].checked != undefined)) {
+      verificadorIpt = true;
+    }
+  }
+
+  if (verificadorIpt) {
+    return true;
+  } else {
+    alert("Não é possível copiar. Selecione uma configuração.");
+    return false;
+  }
 }
 
 const configuracoesSection = document.getElementById("configuracoesSection");
 
-window.onclick = function(event) {
-  if (event.target.matches(".bg-img-animado")) {
-    configuracoesSection.style.display = 'none';    
+window.onclick = function (event) {
+  if (event.target.matches(".bg-img-animado") || event.target.matches(".container") || event.target.matches(".theme") ||  event.target.matches(".title") || event.target.matches("h2")) {
+    configuracoesSection.style.display = "none";
   }
-}
+};

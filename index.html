@@ -661,7 +661,8 @@ OBS.: Client pediu urgência"
         <h1>Configurações de roteador</h1>
         <h2>Pontos adicionais</h2>
         <div class="ptDiv">
-          <span><input type="radio" name="pontos" id="nenhumPt" value="- configurações realizadas:"> <label for="nenhumPt">Nenhum</label></span>
+          <span> <i id="selecionarTudoCheckbox" onclick="selecionarTudoCheckbox()" class="fa-solid fa-circle-check"></i></span>
+          <span> <i id="desselecionarIpt" onclick="desselecionarIptRadioPt()" class="fa-solid fa-circle-xmark"></i></span>
           <span><input type="radio" name="pontos" id="primeiroPt" value="- configurações realizadas no 1º ponto:"> <label for="primeiroPt">Primeiro</label></span>
           <span><input type="radio" name="pontos" id="segundoPt" value="- configurações realizadas no 2º ponto:"> <label for="segundoPt">Segundo</label></span>
           <span><input type="radio" name="pontos" id="terceiroPt" value="- configurações realizadas no 3º ponto:"> <label for="terceiroPt">Terceiro</label></span>
@@ -678,8 +679,10 @@ OBS.: Client pediu urgência"
           <div id="resultadoConfigDiv"></div>
         </div>
                 
-
-        <button id="btnCopiarConfig" onclick="copiarConfig()">Copiar</button>
+        <div class="btnCopiarDiv">
+          <button id="btnCopiarConfig" onclick="copiarConfig()">Copiar</button>
+          <i id="adiocionarPtIcon" class="fa-solid fa-circle-plus" onclick="adicionarConfigPontoAdicional()"></i>
+        </div>
       </div>
     </section>
 
