@@ -408,7 +408,7 @@ function verificarMensagemVazia() {
 const configuracoesSection = document.getElementById("configuracoesSection");
 
 window.onclick = function (event) {
-  if (event.target.matches(".bg-img-animado") || event.target.matches(".container") || event.target.matches(".theme") ||  event.target.matches(".title") || event.target.matches("h2")) {
+  if (event.target.matches(".bg-img-animado") || event.target.matches(".container") || event.target.matches(".theme") ||  event.target.matches(".title") || event.target.matches("h2") || event.target.matches("configIcon")) {
     configuracoesSection.style.display = "none";
   }
 };

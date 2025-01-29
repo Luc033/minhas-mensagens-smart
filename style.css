@@ -219,7 +219,9 @@ h2 {
   justify-content: center;
   align-items: center;
   position: relative;
+  /*
   background-image: linear-gradient( 271.5deg,  rgb(182, 69, 243) 46.5%, rgb(151, 8, 151) 98.5%, rgba(187,187,187,1) 124.3% );
+  */
   width: 50%;
   top: 20vh;
   height: auto;
@@ -227,6 +229,8 @@ h2 {
   padding: 1em;
   color: #e0e0e3;
   box-shadow: rgba(0, 0, 0, 0.516) 0px 2px 4px 1px;
+  background: url(img/bg-config.jpg) no-repeat fixed;
+  background-size: 100%;
 }
 
 h1 {
@@ -322,6 +326,7 @@ h2 {
 }
 
 .ptDiv span:hover{
+  color: rgb(145, 254, 145);
   text-shadow: rgba(0, 0, 0, 0.607) 1px 1px 10px;
 }
 
@@ -434,7 +439,8 @@ input[type="checkbox"]:checked + label {
   font-weight: bold;
 }
 
-.configCheckboxSpan label:hover {
+.configCheckboxSpan  label:hover {
+  color: rgb(145, 254, 145);
   text-shadow: rgba(231, 245, 230, 0.701) 0px 0px 4px;
 }
 
