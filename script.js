@@ -42,6 +42,7 @@ function mostraImagem(element) {
 function abrirConfiguracoes() {
   const configuracoesSection = document.getElementById("configuracoesSection");
   configuracoesSection.style.display = "flex";
+  dropdownRoteadores()
 }
 
 function dropdownRoteadores() {
@@ -424,3 +425,21 @@ window.onclick = function (event) {
     configuracoesSection.style.display = "none";
   }
 };
+
+
+// TRABALHANDO COM CACHE PARA ARMANEZAR INFORMAÇÕES DE AVISOS
+
+// Salvando um valor
+localStorage.setItem('chave', 'valor armazenado');
+
+// Recuperando um valor
+const valor = localStorage.getItem('chave');
+console.log("Criando: "+ localStorage.getItem('chave')); // "valor armazenado"
+
+// Removendo um item específico
+localStorage.removeItem('chave');
+
+// Limpando todo o localStorage
+localStorage.clear();
+console.log("Apagando: "+valor); // "valor armazenado"
+console.log("localStorage: "+ localStorage.getItem('chave')); // "valor armazenado"
