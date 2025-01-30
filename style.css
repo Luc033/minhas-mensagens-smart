@@ -150,7 +150,7 @@ section {
   border-radius: 3px;
   align-items: center;
   justify-content: center;
-  animation: 3s fadeInOut ease-in-out;
+  animation: 1.5s fadeInOut ease-in-out;
 }
 
 .container {

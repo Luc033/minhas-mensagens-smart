@@ -1,11 +1,20 @@
 let montandoMsg = [];
 let menuRoteadorSelecionado = 0;
 
-const msgCopiado = document.getElementById("msgCopiado");
+//const msgCopiado = document.getElementById("msgCopiado");
+const msgCopiado = document.createElement('span');
+msgCopiado.id = 'msgCopiado';
+
+const msgCopiadoText = document.createElement('p');
+msgCopiadoText.textContent = 'Copiado com sucesso!'
+
+msgCopiado.appendChild(msgCopiadoText);
+
 document.querySelectorAll(".title").forEach((item) => {
   item.addEventListener("click", (event) => {
     
     if(document.getElementById('configuracoesSection').style.display == "none"){
+
       
       const phrase = event.target.getAttribute("data-phrase");
       navigator.clipboard
@@ -21,10 +30,13 @@ document.querySelectorAll(".title").forEach((item) => {
 });
 
 function mostraImagem(element) {
+  const body = document.getElementsByTagName('body')[0]
+  body.appendChild(element)
+
   element.style.display = "flex";
   setTimeout(function () {
     if (element.style.display === "flex") element.style.display = "none";
-  }, 3000);
+  }, 1500);
 }
 
 function abrirConfiguracoes() {
