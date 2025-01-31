@@ -429,17 +429,119 @@ window.onclick = function (event) {
 
 // TRABALHANDO COM CACHE PARA ARMANEZAR INFORMAÇÕES DE AVISOS
 
-// Salvando um valor
-localStorage.setItem('chave', 'valor armazenado');
+let motivoLista = ["Rompimento", "Problema massivo", "Outros"]
+class Mensagem {
+  constructor(mensagem) {
+    this.mensagem = mensagem;
+    this.dataHora = new Date().toLocaleString('pt-BR');
+  }
+}
 
-// Recuperando um valor
-const valor = localStorage.getItem('chave');
-console.log("Criando: "+ localStorage.getItem('chave')); // "valor armazenado"
+// CRIANDO O BANCO DE DADOS E SUAS RESPECTIVAS TABELAS
+const request = indexedDB.open('MensagensBD', 1);
 
-// Removendo um item específico
-localStorage.removeItem('chave');
+request.onupgradeneeded = function(event) {
+    const db = event.target.result;
 
-// Limpando todo o localStorage
-localStorage.clear();
-console.log("Apagando: "+valor); // "valor armazenado"
-console.log("localStorage: "+ localStorage.getItem('chave')); // "valor armazenado"
+    if (!db.objectStoreNames.contains('data')) {
+        db.createObjectStore('data', { keyPath: 'id' });
+    }
+    if (!db.objectStoreNames.contains('mensagem')) { // Corrigido erro de digitação
+        db.createObjectStore('mensagem', { keyPath: 'id' });
+    }
+    if (!db.objectStoreNames.contains('assunto')) {
+        db.createObjectStore('assunto', { keyPath: 'id' });
+    }
+};
+
+request.onsuccess = function(event) {
+    const db = event.target.result; // Agora db está corretamente referenciado
+
+    const transaction = db.transaction(['assunto'], 'readwrite');
+    const store = transaction.objectStore('assunto');
+
+    const dado1 = { id: 1, data: "Rompimento" };
+    const dado2 = { id: 2, data: "Problema Massivo" };
+    const dado3 = { id: 3, data: "Outros" };
+    store.put(dado1);
+    store.put(dado2);
+    store.put(dado3);
+    
+    /*
+    // Capturando o dado salvo corretamente
+
+    for (let i = 1; i < 4; i++) {
+      const getRequest = store.get(i);
+      getRequest.onsuccess = function() {
+          console.log('Assunto criado:', getRequest.result);     
+    }
+    };
+
+    */
+};
+
+request.onerror = function(event) {
+    console.error('Erro ao abrir IndexedDB:', event.target.error);
+};
+
+/*
+// FUNÇÃO PARA ADICIONAR INFO NA TABELA
+function salvarData() {
+  const dbRequest = indexedDB.open('MeuBancoDeDados', 1);
+
+  dbRequest.onsuccess = function(event) {
+      const db = event.target.result;
+      const transaction = db.transaction(['datas'], 'readwrite');
+      const store = transaction.objectStore('datas');
+
+      const dataAtual = new Date().toLocaleString('pt-BR');
+      const dado = { id: 'ultimaData', data: dataAtual };
+
+      store.put(dado);
+      console.log('Data e hora salvas:', dataAtual);
+  };
+}
+
+// FUNÇÃO PARA RECUPERAR DADOS DA TABELA
+function recuperarData() {
+  const dbRequest = indexedDB.open('MeuBancoDeDados', 1);
+
+  dbRequest.onsuccess = function(event) {
+      const db = event.target.result;
+      const transaction = db.transaction(['datas'], 'readonly');
+      const store = transaction.objectStore('datas');
+
+      const getRequest = store.get('ultimaData');
+
+      getRequest.onsuccess = function() {
+          if (getRequest.result) {
+              console.log('Última data salva:', getRequest.result.data);
+          } else {
+              console.log('Nenhuma data encontrada.');
+          }
+      };
+  };
+}
+
+recuperarData(); // Recupera e exibe a última data salva
+
+// FUNÇÃO PARA REMOVER DADOS DA TABELA
+function excluirData() {
+  const dbRequest = indexedDB.open('MeuBancoDeDados', 1);
+
+  dbRequest.onsuccess = function(event) {
+      const db = event.target.result;
+      const transaction = db.transaction(['datas'], 'readwrite');
+      const store = transaction.objectStore('datas');
+
+      store.delete('ultimaData');
+      console.log('Data excluída do IndexedDB.');
+  };
+}
+
+excluirData(); // Remove a data salva
+
+/*
+  MOTIVO - DATA E HORA
+  MENSAGEM
+*/
