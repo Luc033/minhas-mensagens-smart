@@ -81,19 +81,24 @@ header nav i {
   cursor: pointer;
 }
 
-.fa-gear {
+.navIcon {
+  margin-bottom: 0.5em;
   font-size: 40px; /* Tamanho do ícone */
   color: #df00fd; /* Cor inicial */
   text-shadow: rgba(250, 187, 252, 0.646) 0px 0px 8px;
   animation: blink 1.5s infinite ease-in-out; /* Aplica a animação de piscar */
   transition: transform 0.3s ease;
 }
-.fa-gear:hover {
+.configIcon:hover {
   animation: none; /* Remove o efeito de piscar */
   transform: rotate(20deg); /* Gira ao passar o mouse */
   color: rgb(174, 0, 255); /* Muda a cor no hover */
   text-shadow: rgba(210, 144, 254, 0.788) 0px 0px 8px;
   transition: transform 2s ease-in;
+}
+
+.warningIcon{
+  color: yellow; /* Cor inicial */
 }
 /* Define o efeito de piscar */
 @keyframes blink {
@@ -495,3 +500,47 @@ input[type="checkbox"]:checked + label {
   transition: color 1s ease-in-out ;
 }
 
+/*   AVISOS     */
+
+.avisosSection {
+  width: 50%; /* Largura média */
+  max-width: 600px;
+  height: 70vh; /* Altura fixa */
+  background: white;
+  display: flex;
+  top: 10vh;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 3;
+  position: absolute;
+  padding: 0;
+}
+
+.navbarAvisos {
+  background: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  height: 50px;
+}
+
+.iconNavbarAvisos {
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+.mainContentAvisos {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.mensagemMainContentAvisos {
+  background: #e3e3e3;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}

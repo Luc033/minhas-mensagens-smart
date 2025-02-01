@@ -2,36 +2,35 @@ let montandoMsg = [];
 let menuRoteadorSelecionado = 0;
 
 //const msgCopiado = document.getElementById("msgCopiado");
-const msgCopiado = document.createElement('span');
-msgCopiado.id = 'msgCopiado';
+const msgCopiado = document.createElement("span");
+msgCopiado.id = "msgCopiado";
 
-const msgCopiadoText = document.createElement('p');
-msgCopiadoText.textContent = 'Copiado com sucesso!'
+const msgCopiadoText = document.createElement("p");
+msgCopiadoText.textContent = "Copiado com sucesso!";
 
 msgCopiado.appendChild(msgCopiadoText);
 
 document.querySelectorAll(".title").forEach((item) => {
   item.addEventListener("click", (event) => {
-    
-    if(document.getElementById('configuracoesSection').style.display == "none"){
-
-      
+    if (
+      document.getElementById("configuracoesSection").style.display == "none"
+    ) {
       const phrase = event.target.getAttribute("data-phrase");
       navigator.clipboard
-      .writeText(phrase)
-      .then(() => {
-        mostraImagem(msgCopiado);
-      })
-      .catch((err) => {
-        console.error("Erro ao copiar frase: ", err);
-      });
+        .writeText(phrase)
+        .then(() => {
+          mostraImagem(msgCopiado);
+        })
+        .catch((err) => {
+          console.error("Erro ao copiar frase: ", err);
+        });
     }
   });
 });
 
 function mostraImagem(element) {
-  const body = document.getElementsByTagName('body')[0]
-  body.appendChild(element)
+  const body = document.getElementsByTagName("body")[0];
+  body.appendChild(element);
 
   element.style.display = "flex";
   setTimeout(function () {
@@ -42,7 +41,7 @@ function mostraImagem(element) {
 function abrirConfiguracoes() {
   const configuracoesSection = document.getElementById("configuracoesSection");
   configuracoesSection.style.display = "flex";
-  dropdownRoteadores()
+  dropdownRoteadores();
 }
 
 function dropdownRoteadores() {
@@ -133,7 +132,7 @@ function exibirConfig(param) {
 
   // Greatek
   let iptValorGreatek = [
-    "  > TX BEAMFORMING: HAB",
+    "\u00A0\u00A0> TX BEAMFORMING: HAB",
     "  > LDPC: HAB",
     "  > STBC: HAB",
     "  > BG PROTEÇÃO: HAB",
@@ -282,13 +281,20 @@ function exibirConfig(param) {
       elementIpt.setAttribute("name", "configCheckboxIpt");
       elementIpt.setAttribute("id", "configCheckboxIpt" + i);
 
-      if(iptValor[i] == "  > ROTEADOR E ONU REINICIADOS" && radioPt.value != "- configurações realizadas no 1º ponto:"){
+      if (
+        iptValor[i] == "  > ROTEADOR E ONU REINICIADOS" &&
+        radioPt.value != "- configurações realizadas no 1º ponto:"
+      ) {
         elementIpt.value = "ROTEADOR REINICIADO";
-        console.log("Foi patrão: " + radioPt.value + " | Valor do ipt: " + elementIpt.value)
-      }else{ 
+        console.log(
+          "Foi patrão: " +
+            radioPt.value +
+            " | Valor do ipt: " +
+            elementIpt.value
+        );
+      } else {
         elementIpt.value = iptValor[i];
       }
-            
 
       // Label
       let elementLbl = document.createElement("label");
@@ -380,17 +386,17 @@ function adicionarConfigPontoAdicional() {
     for (let i = 0; i < pontos.length; i++) {
       if (pontos[i].checked) {
         pontos[i].checked = false; // Desmarca o atual
-    
-        if (pontos[i + 1]) { // Verifica se o próximo existe
+
+        if (pontos[i + 1]) {
+          // Verifica se o próximo existe
           pontos[i + 1].checked = true; // Marca o próximo
         } else {
-          console.log('erro'); // Último item, sem próximo
+          console.log("erro"); // Último item, sem próximo
         }
-    
+
         break; // Sai do loop ao encontrar o item marcado
       }
     }
-    
   }
 }
 
@@ -401,11 +407,14 @@ function verificarMensagemVazia() {
   const configCheckboxIpt = document.getElementsByName("configCheckboxIpt");
 
   for (let i = 0; i < pontos.length; i++) {
-    if(montandoMsg.length > 0){
+    if (montandoMsg.length > 0) {
       verificadorIpt = true;
-
     }
-    if (pontos[i].checked &&  (configCheckboxIpt[i].checked || configCheckboxIpt[i].checked != undefined)) {
+    if (
+      pontos[i].checked &&
+      (configCheckboxIpt[i].checked ||
+        configCheckboxIpt[i].checked != undefined)
+    ) {
       verificadorIpt = true;
     }
   }
@@ -421,15 +430,22 @@ function verificarMensagemVazia() {
 const configuracoesSection = document.getElementById("configuracoesSection");
 
 window.onclick = function (event) {
-  if (event.target.matches(".bg-img-animado") || event.target.matches(".container") || event.target.matches(".theme") ||  event.target.matches(".title") || event.target.matches("h2") || event.target.matches("configIcon")) {
+  if (
+    event.target.matches(".bg-img-animado") ||
+    event.target.matches(".container") ||
+    event.target.matches(".theme") ||
+    event.target.matches(".title") ||
+    event.target.matches("h2")
+  ) {
     configuracoesSection.style.display = "none";
   }
 };
-/*
 
 // TRABALHANDO COM CACHE PARA ARMANEZAR INFORMAÇÕES DE AVISOS
-
-let motivoLista = ["Rompimento", "Problema massivo", "Outros"]
+function abrirAvisos(){
+  
+}
+let motivoLista = ["Rompimento", "Problema massivo", "Outros"];
 class Mensagem {
   constructor(mensagem) {
     this.mensagem = mensagem;
@@ -439,207 +455,112 @@ class Mensagem {
 
 // CRIANDO O BANCO DE DADOS E SUAS RESPECTIVAS TABELAS
 
-const request = indexedDB.open('MensagensDeAvisoBD', 1);
+const request = indexedDB.open("MensagensDeAvisoBD", 1);
 
-request.onupgradeneeded = function(event) {
-    const db = event.target.result;
+request.onupgradeneeded = function (event) {
+  const db = event.target.result;
 
-    // Criando uma única store com chave primária "id"
-    if (!db.objectStoreNames.contains('avisos')) {
-        db.createObjectStore('avisos', { keyPath: 'id' });
-    }
+  // Criando uma única store com chave primária "id"
+  if (!db.objectStoreNames.contains("avisos")) {
+    db.createObjectStore("avisos", { keyPath: "id" });
+  }
 };
 
-request.onsuccess = function(event) {
-    console.log("Banco de dados IndexedDB pronto!");
+request.onsuccess = function (event) {
+  console.log("Banco de dados IndexedDB pronto!");
 };
-
 
 // INSERINDO NOVOS DADOS
+//salvarAviso("assuntoteste","mensagemteste",new Date().toLocaleString("pt-BR"));
+
 function salvarAviso(assunto, mensagem, data) {
-  const dbRequest = indexedDB.open('MensagensDeAvisoBD', 1);
+  const dbRequest = indexedDB.open("MensagensDeAvisoBD", 1);
 
-  dbRequest.onsuccess = function(event) {
-      const db = event.target.result;
-      const transaction = db.transaction(['avisos'], 'readwrite');
-      const store = transaction.objectStore('avisos');
-      let novoId = 0
-      const countRequest = store.count();
-      countRequest.onsuccess = function() {
-        novoId = countRequest.result + 1; // Próximo ID
-        callback(novoId); // Retorna o ID usando callback
-      };
+  dbRequest.onsuccess = function (event) {
+    const db = event.target.result;
+    const transaction = db.transaction(["avisos"], "readwrite");
+    const store = transaction.objectStore("avisos");
 
-      const aviso = { novoId, assunto, mensagem, data };
-      store.put(aviso);
+    const countRequest = store.count(); // Conta o número de registros
+    countRequest.onsuccess = function () {
+      const novoId = countRequest.result + 1; // Próximo ID
+
+      // Criar o objeto de aviso com o novo ID
+      const aviso = { id: novoId, assunto, mensagem, data };
+      store.put(aviso); // Salva o aviso com o novo ID
 
       console.log("Aviso salvo:", aviso);
+    };
+
+    countRequest.onerror = function () {
+      console.error("Erro ao contar os registros.");
+    };
+  };
+
+  dbRequest.onerror = function (event) {
+    console.error("Erro ao abrir o banco de dados:", event.target.error);
   };
 }
 
 // Exemplo de inserção
-salvarAviso(1, "Segurança", "Alerta de segurança!", "2024-01-30 15:00:00");
-salvarAviso(2, "Mudança de horário", "Reunião adiada para sexta-feira", "2024-02-01 10:30:00");
+salvarAviso(
+  "Segurança",
+  "Alerta de segurança!",
+  new Date().toLocaleString("pt-BR")
+);
+salvarAviso(
+  "Mudança de horário",
+  "Reunião adiada para sexta-feira",
+  new Date().toLocaleString("pt-BR")
+);
+
+recuperarAvisos();
 
 // BUSCANDO DADOS
 function recuperarAvisos() {
-  const dbRequest = indexedDB.open('MensagensDeAvisoBD', 1);
+  const dbRequest = indexedDB.open("MensagensDeAvisoBD", 1);
 
-  dbRequest.onsuccess = function(event) {
-      const db = event.target.result;
-      const transaction = db.transaction(['avisos'], 'readonly');
-      const store = transaction.objectStore('avisos');
+  dbRequest.onsuccess = function (event) {
+    const db = event.target.result;
+    const transaction = db.transaction(["avisos"], "readonly");
+    const store = transaction.objectStore("avisos");
 
-      const getRequest = store.getAll();
+    const countRequest = store.count();
 
-      getRequest.onsuccess = function() {
-          console.log("Todos os avisos:", getRequest.result);
-      };
+    countRequest.onsuccess = function () {
+      //console.log("total de registro:", countRequest.result);
+
+      // Aqui o loop para buscar os registros depois de salvar o novo aviso
+      for (let i = 1; i < countRequest.result + 2; i++) {
+        const getRequest = store.get(i);
+        getRequest.onsuccess = function () {
+          if (getRequest.result) {
+            console.log(
+              `[${getRequest.result.assunto}] ${getRequest.result.mensagem} ${getRequest.result.data}`
+            );
+          } else {
+            console.warn(`Registro com ID ${i} não encontrado.`);
+          }
+        };
+        getRequest.onerror = function () {
+          console.error("Erro ao buscar assunto:", i);
+        };
+      }
+    };
   };
 }
-
-// Chamar a função para ver os dados no console
-recuperarAvisos();
 
 // EXCLUINDO
 function excluirAviso(id) {
-  const dbRequest = indexedDB.open('MensagensDeAvisoBD', 1);
+  const dbRequest = indexedDB.open("MensagensDeAvisoBD", 1);
 
-  dbRequest.onsuccess = function(event) {
-      const db = event.target.result;
-      const transaction = db.transaction(['avisos'], 'readwrite');
-      const store = transaction.objectStore('avisos');
-
-      store.delete(id);
-
-      console.log(`Aviso com id ${id} excluído.`);
-  };
-}
-
-// Exemplo de exclusão
-excluirAviso(1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-const request = indexedDB.open('MensagensDeAvisoBD', 1);
-
-request.onupgradeneeded = function(event) {
+  dbRequest.onsuccess = function (event) {
     const db = event.target.result;
+    const transaction = db.transaction(["avisos"], "readwrite");
+    const store = transaction.objectStore("avisos");
 
-    if (!db.objectStoreNames.contains('data')) {
-        db.createObjectStore('data', { keyPath: 'id' });
-    }
-    if (!db.objectStoreNames.contains('mensagem')) { // Corrigido erro de digitação
-        db.createObjectStore('mensagem', { keyPath: 'id' });
-    }
-    if (!db.objectStoreNames.contains('assunto')) {
-        db.createObjectStore('assunto', { keyPath: 'id' });
-    }
-};
+    store.delete(id);
 
-request.onsuccess = function(event) {
-    const db = event.target.result; // Agora db está corretamente referenciado
-
-    const transaction = db.transaction(['assunto'], 'readwrite');
-    const store = transaction.objectStore('assunto');
-
-    const dado1 = { id: 1, data: "Rompimento" };
-    const dado2 = { id: 2, data: "Problema Massivo" };
-    const dado3 = { id: 3, data: "Outros" };
-    store.put(dado1);
-    store.put(dado2);
-    store.put(dado3);
-    
-    /*
-    // Capturando o dado salvo corretamente
-
-    for (let i = 1; i < 4; i++) {
-      const getRequest = store.get(i);
-      getRequest.onsuccess = function() {
-          console.log('Assunto criado:', getRequest.result);     
-    }
-    };
-
-    */
-};
-
-request.onerror = function(event) {
-    console.error('Erro ao abrir IndexedDB:', event.target.error);
-};
-
-/*
-// FUNÇÃO PARA ADICIONAR INFO NA TABELA
-function salvarAviso(assunto, novaMensagem) {
-  const dbRequest = indexedDB.open('MensagensDeAvisoBD', 1);
-
-  dbRequest.onsuccess = function(event) {
-      const db = event.target.result;
-      const transactionMensagem = db.transaction(['mensagem'], 'readwrite');
-      const transactionData = db.transaction(['data'], 'readwrite');
-      const transactionData = db.transaction([''], 'readwrite');
-      const store = transaction.objectStore('mensagem');
-
-      const dataAtual = new Date().toLocaleString('pt-BR');
-      const dado = { id: 'ultimaData', data: dataAtual };
-
-      store.put(dado);
-      console.log('Data e hora salvas:', dataAtual);
+    console.log(`Aviso com id ${id} excluído.`);
   };
 }
-
-// FUNÇÃO PARA RECUPERAR DADOS DA TABELA
-function recuperarData() {
-  const dbRequest = indexedDB.open('MeuBancoDeDados', 1);
-
-  dbRequest.onsuccess = function(event) {
-      const db = event.target.result;
-      const transaction = db.transaction(['datas'], 'readonly');
-      const store = transaction.objectStore('datas');
-
-      const getRequest = store.get('ultimaData');
-
-      getRequest.onsuccess = function() {
-          if (getRequest.result) {
-              console.log('Última data salva:', getRequest.result.data);
-          } else {
-              console.log('Nenhuma data encontrada.');
-          }
-      };
-  };
-}
-
-recuperarData(); // Recupera e exibe a última data salva
-
-// FUNÇÃO PARA REMOVER DADOS DA TABELA
-function excluirData() {
-  const dbRequest = indexedDB.open('MeuBancoDeDados', 1);
-
-  dbRequest.onsuccess = function(event) {
-      const db = event.target.result;
-      const transaction = db.transaction(['datas'], 'readwrite');
-      const store = transaction.objectStore('datas');
-
-      store.delete('ultimaData');
-      console.log('Data excluída do IndexedDB.');
-  };
-}
-
-excluirData(); // Remove a data salva
-
-/*
-  MOTIVO - DATA E HORA
-  MENSAGEM
-*/
-

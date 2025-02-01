@@ -5,21 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon" />
-    <script src="https://kit.fontawesome.com/2ca9804ec8.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/2ca9804ec8.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Scripts</title>
   </head>
   <body>
     <header>
       <nav>
-        <i onclick="abrirConfiguracoes()" class="configIcon fa-solid fa-gear"></i>
+        <i
+          onclick="abrirConfiguracoes()"
+          class="navIcon configIcon fa-solid fa-gear"
+        ></i>
+        <i
+          onclick="abrirAvisos()"
+          class="warningIcon navIcon fa-solid fa-triangle-exclamation"
+        ></i>
       </nav>
     </header>
     <div class="bg">
       <img class="bg-img-animado" src="img/bg-2.jpg" alt="" />
     </div>
-    <!--
-      <span id="msgCopiado" style="display: none"><p>Copiado com sucesso!</p></span>
-        -->
+
     <div class="container">
       <section class="theme" id="saudacao">
         <h2>Saudação</h2>
@@ -33,23 +41,23 @@
           Endereço
         </div>
         <div
-        class="title"
-        data-phrase="Lamento que você esteja passando por isso e saiba que estou aqui para te ajudar 💙"
+          class="title"
+          data-phrase="Lamento que você esteja passando por isso e saiba que estou aqui para te ajudar 💙"
         >
-        Lamento
-      </div>
-      <div
-        class="title"
-        data-phrase="Lamento que você esteja passando por isso e saiba que estou aqui para te ajudar, antes de verificar o que está acontecendo, poderia me informar o endereço do local?😉"
-      >
-        Lamento + Endereço
-      </div>
-      <div
-        class="title"
-        data-phrase="Obrigado por confirmar. Já estou verificando o seu cadastro 💙"
-      >
-        Obrigado
-      </div>
+          Lamento
+        </div>
+        <div
+          class="title"
+          data-phrase="Lamento que você esteja passando por isso e saiba que estou aqui para te ajudar, antes de verificar o que está acontecendo, poderia me informar o endereço do local?😉"
+        >
+          Lamento + Endereço
+        </div>
+        <div
+          class="title"
+          data-phrase="Obrigado por confirmar. Já estou verificando o seu cadastro 💙"
+        >
+          Obrigado
+        </div>
         <div
           class="title"
           data-phrase="Irei fazer algumas perguntinhas para diagnosticar a origem do problema para conseguir solucioná-lo Tudo bem?😉"
@@ -272,9 +280,12 @@ Link: https://g.page/r/Ce2FozYTA7IYEAI/review"
           >
             Finalização
           </div>
-          <div class="title" data-phrase="Nosso atendimento humanizado via whatsapp está disponível até as 21h.
-Já pelo telefone, você pode nos contatar até à meia noite 💙">
-          Horário Suporte
+          <div
+            class="title"
+            data-phrase="Nosso atendimento humanizado via whatsapp está disponível até as 21h.
+Já pelo telefone, você pode nos contatar até à meia noite 💙"
+          >
+            Horário Suporte
           </div>
         </div>
       </section>
@@ -657,32 +668,220 @@ OBS.: Client pediu urgência"
       </section>
     </div>
     <section id="configuracoesSection" class="configuracoes">
-      
       <div class="div-config">
         <h1>Configurações de roteador</h1>
         <h2>Pontos adicionais</h2>
         <div class="ptDiv">
-          <span> <i id="selecionarTudoCheckbox" onclick="selecionarTudoCheckbox()" class="fa-solid fa-circle-check"></i></span>
-          <span> <i id="desselecionarIpt" onclick="desselecionarIptRadioPt()" class="fa-solid fa-circle-xmark"></i></span>
-          <span><input type="radio" name="pontos" id="primeiroPt" value="- configurações realizadas no 1º ponto:"> <label for="primeiroPt">Primeiro</label></span>
-          <span><input type="radio" name="pontos" id="segundoPt" value="- configurações realizadas no 2º ponto:"> <label for="segundoPt">Segundo</label></span>
-          <span><input type="radio" name="pontos" id="terceiroPt" value="- configurações realizadas no 3º ponto:"> <label for="terceiroPt">Terceiro</label></span>
-          <span><input type="radio" name="pontos" id="quartoPt" value="- configurações realizadas no 4º ponto:"> <label for="quartoPt">Quarto</label></span>
-          <span><input type="radio" name="pontos" id="quintoPt" value="- configurações realizadas no 5º ponto:"> <label for="quintoPt">Quinto</label></span>
+          <span>
+            <i
+              id="selecionarTudoCheckbox"
+              onclick="selecionarTudoCheckbox()"
+              class="fa-solid fa-circle-check"
+            ></i
+          ></span>
+          <span>
+            <i
+              id="desselecionarIpt"
+              onclick="desselecionarIptRadioPt()"
+              class="fa-solid fa-circle-xmark"
+            ></i
+          ></span>
+          <span
+            ><input
+              type="radio"
+              name="pontos"
+              id="primeiroPt"
+              value="- configurações realizadas no 1º ponto:"
+            />
+            <label for="primeiroPt">Primeiro</label></span
+          >
+          <span
+            ><input
+              type="radio"
+              name="pontos"
+              id="segundoPt"
+              value="- configurações realizadas no 2º ponto:"
+            />
+            <label for="segundoPt">Segundo</label></span
+          >
+          <span
+            ><input
+              type="radio"
+              name="pontos"
+              id="terceiroPt"
+              value="- configurações realizadas no 3º ponto:"
+            />
+            <label for="terceiroPt">Terceiro</label></span
+          >
+          <span
+            ><input
+              type="radio"
+              name="pontos"
+              id="quartoPt"
+              value="- configurações realizadas no 4º ponto:"
+            />
+            <label for="quartoPt">Quarto</label></span
+          >
+          <span
+            ><input
+              type="radio"
+              name="pontos"
+              id="quintoPt"
+              value="- configurações realizadas no 5º ponto:"
+            />
+            <label for="quintoPt">Quinto</label></span
+          >
         </div>
         <div class="dropdownContainer">
-          <button onclick="dropdownRoteadores()" class="dropRoteadores" id="btnDrop"><span class="text dropRoteadoresTxt">Selecionar roteador</span></button>
+          <button
+            onclick="dropdownRoteadores()"
+            class="dropRoteadores"
+            id="btnDrop"
+          >
+            <span class="text dropRoteadoresTxt">Selecionar roteador</span>
+          </button>
           <div id="dropdownRoteadoresContentDiv" class="dropdown-content">
-            <button class="btnDropConfigContent" id="btnConfigOnt" onclick="exibirConfig(1)"><span class="text">ONT</span></button>
-            <button class="btnDropConfigContent" id="btnConfigGreatek" onclick="exibirConfig(2)" ><span class="text">Greatek</span></button>
-            <button class="btnDropConfigContent" id="btnConfigOutros" onclick="exibirConfig(3)"><span class="text">Outros roteadores</span></button>
+            <button
+              class="btnDropConfigContent"
+              id="btnConfigOnt"
+              onclick="exibirConfig(1)"
+            >
+              <span class="text">ONT</span>
+            </button>
+            <button
+              class="btnDropConfigContent"
+              id="btnConfigGreatek"
+              onclick="exibirConfig(2)"
+            >
+              <span class="text">Greatek</span>
+            </button>
+            <button
+              class="btnDropConfigContent"
+              id="btnConfigOutros"
+              onclick="exibirConfig(3)"
+            >
+              <span class="text">Outros roteadores</span>
+            </button>
           </div>
           <div id="resultadoConfigDiv"></div>
         </div>
-                
+
         <div class="btnCopiarDiv">
           <button id="btnCopiarConfig" onclick="copiarConfig()">Copiar</button>
-          <i id="adiocionarPtIcon" class="fa-solid fa-circle-plus" onclick="adicionarConfigPontoAdicional()"></i>
+          <i
+            id="adiocionarPtIcon"
+            class="fa-solid fa-circle-plus"
+            onclick="adicionarConfigPontoAdicional()"
+          ></i>
+        </div>
+      </div>
+    </section>
+
+    <section id="avisosSection" class="avisosSection">
+      <div class="navbarAvisos">
+        <span class="iconNavbarAvisos">🏠</span>
+        <span class="iconNavbarAvisos">🔍</span>
+        <span class="iconNavbarAvisos">⚙️</span>
+      </div>
+      <div class="mainContentAvisos">
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
+          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
+          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Quisquam veniam
+          consequuntur iste rem temporibus, architecto quod beatae ex odit.
+          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
+          doloremque quam eveniet.
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
+          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
+          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Quisquam veniam
+          consequuntur iste rem temporibus, architecto quod beatae ex odit.
+          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
+          doloremque quam eveniet.
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
+          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
+          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Quisquam veniam
+          consequuntur iste rem temporibus, architecto quod beatae ex odit.
+          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
+          doloremque quam eveniet.
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
+          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
+          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Quisquam veniam
+          consequuntur iste rem temporibus, architecto quod beatae ex odit.
+          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
+          doloremque quam eveniet.
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
+          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
+          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Quisquam veniam
+          consequuntur iste rem temporibus, architecto quod beatae ex odit.
+          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
+          doloremque quam eveniet.
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
+          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
+          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Quisquam veniam
+          consequuntur iste rem temporibus, architecto quod beatae ex odit.
+          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
+          doloremque quam eveniet.
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
+          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
+          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Quisquam veniam
+          consequuntur iste rem temporibus, architecto quod beatae ex odit.
+          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
+          doloremque quam eveniet.
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
+          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
+          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Quisquam veniam
+          consequuntur iste rem temporibus, architecto quod beatae ex odit.
+          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
+          doloremque quam eveniet.
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
+          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
+          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
+          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Quisquam veniam
+          consequuntur iste rem temporibus, architecto quod beatae ex odit.
+          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
+          doloremque quam eveniet.
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 2: Lorem ipsum dolor sit amet...
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 3: Lorem ipsum dolor sit amet...
+        </div>
+        <div class="mensagemMainContentAvisos">
+          Mensagem longa 4: Lorem ipsum dolor sit amet...
         </div>
       </div>
     </section>
