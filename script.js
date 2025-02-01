@@ -5,7 +5,7 @@ let menuRoteadorSelecionado = 0;
 const msgCopiado = document.createElement("span");
 msgCopiado.id = "msgCopiado";
 
-const msgCopiadoText = document.createElement("p");
+let msgCopiadoText = document.createElement("p");
 msgCopiadoText.textContent = "Copiado com sucesso!";
 
 msgCopiado.appendChild(msgCopiadoText);
@@ -41,13 +41,20 @@ function mostraImagem(element) {
 function abrirConfiguracoes() {
   const configuracoesSection = document.getElementById("configuracoesSection");
   configuracoesSection.style.display = "flex";
-  dropdownRoteadores();
+  efeitoAlternarDisplay("dropdownRoteadoresContentDiv", "block", false);
 }
 
-function dropdownRoteadores() {
-  document
-    .getElementById("dropdownRoteadoresContentDiv")
-    .classList.toggle("show");
+function efeitoAlternarDisplay(idElemento, novoDisplay, alternarAuto) {
+  const elemento = document.getElementById(idElemento);
+  if (alternarAuto) {
+    if (elemento.style.display == "none") {
+      elemento.style.display = novoDisplay;
+    } else {
+      elemento.style.display = "none";
+    }
+  } else {
+    elemento.style.display = novoDisplay;
+  }
 }
 
 const btnDrop = document.getElementById("btnDrop");
@@ -100,7 +107,7 @@ function exibirConfig(param) {
   removerElementosFilhos("resultadoConfigDiv");
 
   let iptValorOnt = [
-    "  > BLINDING OPTIONS: LAN 1 ATÉ LAN 4 > HAB / SSID 1 > HAB / SSID 5 > HAB",
+    "  > BLINDING optionAssunto: LAN 1 ATÉ LAN 4 > HAB / SSID 1 > HAB / SSID 5 > HAB",
     "  > NAT: FULL CONE",
     "  > ROUTE: IPV4 E IPV6 PADRONIZADOS",
     "  > UPNP:HAB",
@@ -115,7 +122,7 @@ function exibirConfig(param) {
     "  > ONT REINICIADA",
   ];
   let iMaxValueOnt = [
-    "BLINDING OPTIONS",
+    "BLINDING optionAssunto",
     "NAT",
     "ROUTE",
     "UPNP",
@@ -286,12 +293,6 @@ function exibirConfig(param) {
         radioPt.value != "- configurações realizadas no 1º ponto:"
       ) {
         elementIpt.value = "ROTEADOR REINICIADO";
-        console.log(
-          "Foi patrão: " +
-            radioPt.value +
-            " | Valor do ipt: " +
-            elementIpt.value
-        );
       } else {
         elementIpt.value = iptValor[i];
       }
@@ -337,7 +338,6 @@ function copiarConfig() {
     for (let i = 0; i < montandoMsg.length; i++) {
       msgConfigPronta += montandoMsg[i];
     }
-    console.log(montandoMsg);
     while (montandoMsg.length > 0) {
       montandoMsg.shift();
     }
@@ -367,7 +367,6 @@ function adicionarConfigPontoAdicional() {
     }, 800);
 
     // salvando as configurações selecionadas na variavel
-    console.log(montandoMsg);
     montarMensagem();
 
     //Remove as checkbox de configuração do roteador  e oculta a sua div
@@ -390,10 +389,7 @@ function adicionarConfigPontoAdicional() {
         if (pontos[i + 1]) {
           // Verifica se o próximo existe
           pontos[i + 1].checked = true; // Marca o próximo
-        } else {
-          console.log("erro"); // Último item, sem próximo
         }
-
         break; // Sai do loop ao encontrar o item marcado
       }
     }
@@ -442,15 +438,67 @@ window.onclick = function (event) {
 };
 
 // TRABALHANDO COM CACHE PARA ARMANEZAR INFORMAÇÕES DE AVISOS
-function abrirAvisos(){
-  
-}
-let motivoLista = ["Rompimento", "Problema massivo", "Outros"];
-class Mensagem {
-  constructor(mensagem) {
-    this.mensagem = mensagem;
-    //this.dataHora = new Date().toLocaleString('pt-BR');
+// Manipulando a seleção de assunto para criação de novo avisa da DOM
+const escolhaAssuntoDropdownButton = document.getElementById(
+  "escolhaAssuntoDropdownButton"
+);
+const assuntoOptionDropdownMenu = document.getElementById(
+  "assuntoOptionDropdownMenu"
+);
+const optionAssunto = document.querySelectorAll(".optionAssunto");
+let assuntoEscolhido = "";
+
+// Alternar visibilidade do dropdown ao clicar no botão
+escolhaAssuntoDropdownButton.addEventListener("click", () => {
+  assuntoOptionDropdownMenu.classList.toggle("active");
+});
+
+// Selecionar opção e esconder dropdown
+optionAssunto.forEach((option) => {
+  option.addEventListener("click", (event) => {
+    escolhaAssuntoDropdownButton.textContent = event.target.textContent;
+    assuntoOptionDropdownMenu.classList.remove("active");
+    assuntoEscolhido = option.textContent.valueOf();
+  });
+});
+
+// Fechar dropdown ao clicar fora dele
+document.addEventListener("click", (event) => {
+  if (
+    !escolhaAssuntoDropdownButton.contains(event.target) &&
+    !assuntoOptionDropdownMenu.contains(event.target)
+  ) {
+    assuntoOptionDropdownMenu.classList.remove("active");
   }
+});
+
+function abrirAvisos() {
+  efeitoAlternarDisplay("overlay", "block", true);
+  efeitoAlternarDisplay("avisosSection", "flex", true);
+  recuperarAvisos();
+}
+
+function voltarTelaAvisos() {
+  if (txtAreaNovaMensagemAvisos) {
+    txtAreaNovaMensagemAvisos.value = ""; // Remove todo o conteúdo
+  }
+  assuntoEscolhido = "";
+  efeitoAlternarDisplay("mainContentAvisos", "flex", false);
+  efeitoAlternarDisplay("navbarAvisosDoMainContent", "flex", false);
+  efeitoAlternarDisplay("navBarAbaNovaMensagemAvisos", "none", false);
+  efeitoAlternarDisplay("abaNovaMensagemAvisos", "none", false);
+
+  escolhaAssuntoDropdownButton.textContent = "Escolha um assunto";
+}
+
+function adicionarNovoAviso() {
+  efeitoAlternarDisplay("mainContentAvisos", "none", false);
+  efeitoAlternarDisplay("navbarAvisosDoMainContent", "none", false);
+  efeitoAlternarDisplay("navBarAbaNovaMensagemAvisos", "flex", false);
+  efeitoAlternarDisplay("abaNovaMensagemAvisos", "flex", false);
+  /*
+
+  */
 }
 
 // CRIANDO O BANCO DE DADOS E SUAS RESPECTIVAS TABELAS
@@ -473,8 +521,18 @@ request.onsuccess = function (event) {
 // INSERINDO NOVOS DADOS
 //salvarAviso("assuntoteste","mensagemteste",new Date().toLocaleString("pt-BR"));
 
-function salvarAviso(assunto, mensagem, data) {
+function salvarAviso() {
   const dbRequest = indexedDB.open("MensagensDeAvisoBD", 1);
+  const txtAreaNovaMensagemAvisos = document.getElementById(
+    "txtAreaNovaMensagemAvisos"
+  );
+  const novoAviso = txtAreaNovaMensagemAvisos.value;
+  const dataAtual = new Date().toLocaleString("pt-BR");
+
+  if (novoAviso === "" || assuntoEscolhido === "") {
+    alert("O aviso não pode ficar vazio. Tente novamente.");
+    return;
+  }
 
   dbRequest.onsuccess = function (event) {
     const db = event.target.result;
@@ -486,8 +544,19 @@ function salvarAviso(assunto, mensagem, data) {
       const novoId = countRequest.result + 1; // Próximo ID
 
       // Criar o objeto de aviso com o novo ID
-      const aviso = { id: novoId, assunto, mensagem, data };
+      const aviso = { id: novoId, assuntoEscolhido, novoAviso, dataAtual };
       store.put(aviso); // Salva o aviso com o novo ID
+      voltarTelaAvisos();
+      recuperarAvisos();
+      assuntoEscolhido = "";
+
+      // Criando uma animação para ilutrar que foi inserido com sucesso
+      const msgCopiado = document.createElement("span");
+      msgCopiado.id = "msgCopiado";
+      let msgCopiadoText = document.createElement("p");
+      msgCopiadoText.textContent = "Aviso inserido!";
+      msgCopiado.appendChild(msgCopiadoText);
+      mostraImagem(msgCopiado);
 
       console.log("Aviso salvo:", aviso);
     };
@@ -503,21 +572,12 @@ function salvarAviso(assunto, mensagem, data) {
 }
 
 // Exemplo de inserção
-salvarAviso(
-  "Segurança",
-  "Alerta de segurança!",
-  new Date().toLocaleString("pt-BR")
-);
-salvarAviso(
-  "Mudança de horário",
-  "Reunião adiada para sexta-feira",
-  new Date().toLocaleString("pt-BR")
-);
-
-recuperarAvisos();
 
 // BUSCANDO DADOS
 function recuperarAvisos() {
+  removerElementosFilhos("mainContentAvisos"); // Limpa os avisos existentes na tela
+  const mainContentAvisos = document.getElementById("mainContentAvisos");
+
   const dbRequest = indexedDB.open("MensagensDeAvisoBD", 1);
 
   dbRequest.onsuccess = function (event) {
@@ -525,30 +585,96 @@ function recuperarAvisos() {
     const transaction = db.transaction(["avisos"], "readonly");
     const store = transaction.objectStore("avisos");
 
+    // 🔹 Verifica a quantidade de registros antes de percorrer
     const countRequest = store.count();
-
     countRequest.onsuccess = function () {
-      //console.log("total de registro:", countRequest.result);
-
-      // Aqui o loop para buscar os registros depois de salvar o novo aviso
-      for (let i = 1; i < countRequest.result + 2; i++) {
-        const getRequest = store.get(i);
-        getRequest.onsuccess = function () {
-          if (getRequest.result) {
-            console.log(
-              `[${getRequest.result.assunto}] ${getRequest.result.mensagem} ${getRequest.result.data}`
-            );
-          } else {
-            console.warn(`Registro com ID ${i} não encontrado.`);
-          }
-        };
-        getRequest.onerror = function () {
-          console.error("Erro ao buscar assunto:", i);
-        };
+      if (countRequest.result < 1) {
+        const elemento = document.createElement("div");
+        elemento.textContent = "Sem avisos hoje.";
+        mainContentAvisos.appendChild(elemento);
+        console.log("🔹 Nenhum aviso encontrado.");
+        return; // Se não houver avisos, já interrompe a execução
       }
+
+      // Aqui, vamos usar a função openCursor com a chave de ordenação correta
+      const cursorRequest = store.openCursor(null, "prev"); // "prev" ordena do mais recente para o mais antigo
+
+      cursorRequest.onsuccess = function (event) {
+        const cursor = event.target.result;
+
+        if (cursor) {
+          const divContainer = document.createElement("div");
+          divContainer.className = "mensagemMainContentAvisos";
+
+          const divHeaderMsg = document.createElement("div");
+          divHeaderMsg.className = "mensagemHeadMainContentAvisos";
+
+          const divHeaderAssunto = document.createElement("div");
+          divHeaderAssunto.innerText = cursor.value.assuntoEscolhido;
+
+          const divHeaderDate = document.createElement("div");
+          divHeaderDate.innerText = cursor.value.dataAtual;
+
+          const divMsg = document.createElement("div");
+          divMsg.innerText = cursor.value.novoAviso;
+
+          // Monta a estrutura
+          divHeaderMsg.appendChild(divHeaderAssunto);
+          divHeaderMsg.appendChild(divHeaderDate);
+          divContainer.appendChild(divHeaderMsg);
+          divContainer.appendChild(divMsg);
+
+          // Insere o novo aviso no início da lista na DOM
+          mainContentAvisos.insertBefore(divContainer, mainContentAvisos.firstChild);
+
+          cursor.continue(); // Move para o próximo registro
+        } else {
+          console.log("🔹 Fim da lista de avisos.");
+        }
+      };
+
+      cursorRequest.onerror = function () {
+        console.error("❌ Erro ao recuperar avisos.");
+      };
     };
   };
+
+  dbRequest.onerror = function (event) {
+    console.error("❌ Erro ao abrir o banco de dados:", event.target.error);
+  };
 }
+
+
+
+
+//
+
+function verificarDados() {
+  const dbRequest = indexedDB.open("MensagensDeAvisoBD", 1);
+
+  dbRequest.onsuccess = function (event) {
+    const db = event.target.result;
+    const transaction = db.transaction(["avisos"], "readonly");
+    const store = transaction.objectStore("avisos");
+
+    const getAllRequest = store.getAll(); // Obtém todos os registros
+
+    getAllRequest.onsuccess = function () {
+      console.log("Registros salvos no IndexedDB:", getAllRequest.result);
+    };
+
+    getAllRequest.onerror = function () {
+      console.error("Erro ao buscar os registros.");
+    };
+  };
+
+  dbRequest.onerror = function (event) {
+    console.error("Erro ao abrir o banco de dados:", event.target.error);
+  };
+}
+
+// Chame essa função no console do navegador para verificar os dados
+verificarDados();
 
 // EXCLUINDO
 function excluirAviso(id) {
@@ -559,8 +685,80 @@ function excluirAviso(id) {
     const transaction = db.transaction(["avisos"], "readwrite");
     const store = transaction.objectStore("avisos");
 
-    store.delete(id);
+    const deleteRequest = store.delete(id); // Exclui o aviso
 
-    console.log(`Aviso com id ${id} excluído.`);
+    deleteRequest.onsuccess = function () {
+      console.log(`✅ Aviso com id ${id} excluído com sucesso.`);
+    };
+
+    deleteRequest.onerror = function () {
+      console.error(`❌ Erro ao excluir aviso com id ${id}.`);
+    };
+
+    transaction.oncomplete = function () {
+      console.log("🔄 Transação de exclusão finalizada.");
+    };
+  };
+
+  dbRequest.onerror = function (event) {
+    console.error("❌ Erro ao abrir o banco de dados:", event.target.error);
   };
 }
+
+function excluirTodosAvisos() {
+  return new Promise((resolve, reject) => {
+    const dbRequest = indexedDB.open("MensagensDeAvisoBD", 1);
+
+    dbRequest.onsuccess = function (event) {
+      const db = event.target.result;
+      const transaction = db.transaction(["avisos"], "readwrite");
+      const store = transaction.objectStore("avisos");
+
+      const cursorRequest = store.openCursor();
+
+      cursorRequest.onsuccess = function (event) {
+        const cursor = event.target.result;
+        if (cursor) {
+          store.delete(cursor.key); // Exclui cada registro
+          cursor.continue(); // Continua com o próximo registro
+        } else {
+          console.log("✅ Todos os avisos foram excluídos.");
+          resolve(); // Resolve a Promise quando todos os avisos forem excluídos
+        }
+      };
+
+      cursorRequest.onerror = function () {
+        console.error("❌ Erro ao excluir avisos.");
+        reject("Erro ao excluir avisos."); // Rejeita a Promise em caso de erro
+      };
+    };
+
+    dbRequest.onerror = function (event) {
+      console.error("❌ Erro ao abrir o banco de dados:", event.target.error);
+      reject("Erro ao abrir o banco de dados."); // Rejeita a Promise se não conseguir abrir o banco
+    };
+  });
+}
+
+const iconExcluirTodosAvisos = document.getElementById(
+  "iconExcluirTodosAvisos"
+);
+
+iconExcluirTodosAvisos.addEventListener("click", async () => {
+  try {
+    await excluirTodosAvisos(); // Aguarda a exclusão antes de chamar recuperarAvisos
+    recuperarAvisos(); // Chama recuperarAvisos após exclusão
+  } catch (error) {
+    console.error("❌ Erro durante a exclusão dos avisos:", error);
+  }
+});
+
+const iconRefreshAvisos = document.getElementById("iconRefreshAvisos");
+let rotation = 0; // Variável para armazenar a rotação atual
+
+iconRefreshAvisos.addEventListener("click", () => {
+  rotation += 360; // Adiciona mais 360° a cada clique
+  iconRefreshAvisos.style.transition = "transform 0.5s ease-in-out"; // Transição suave
+  iconRefreshAvisos.style.transform = `rotate(${rotation}deg)`;
+  recuperarAvisos();
+});

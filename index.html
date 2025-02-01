@@ -12,6 +12,7 @@
     <title>Scripts</title>
   </head>
   <body>
+    <div id="overlay" class="overlay"></div>
     <header>
       <nav>
         <i
@@ -734,7 +735,7 @@ OBS.: Client pediu urgência"
         </div>
         <div class="dropdownContainer">
           <button
-            onclick="dropdownRoteadores()"
+            onclick="efeitoAlternarDisplay('dropdownRoteadoresContentDiv', 'showBlock')"
             class="dropRoteadores"
             id="btnDrop"
           >
@@ -779,110 +780,58 @@ OBS.: Client pediu urgência"
 
     <section id="avisosSection" class="avisosSection">
       <div class="navbarAvisos">
-        <span class="iconNavbarAvisos">🏠</span>
-        <span class="iconNavbarAvisos">🔍</span>
-        <span class="iconNavbarAvisos">⚙️</span>
+        <div class="navbarAvisosDoMainContent" id="navbarAvisosDoMainContent">
+          <span class="iconNavbarAvisos"
+          ><i onclick="abrirAvisos()" class="fa-solid fa-circle-xmark"></i
+            ></span>
+          <span class="iconNavbarAvisos"
+          ><i
+          onclick="adicionarNovoAviso()"
+          class="fa-solid fa-circle-plus"
+          ></i
+          ></span>
+            <span class="iconNavbarAvisos"
+              ><i id="iconExcluirTodosAvisos" class="fa-solid fa-trash-can"></i
+            ></span>
+            <span id="iconRefreshAvisos" onclick="" class="iconNavbarAvisos"
+              ><i class="fa-solid fa-arrows-rotate"></i></span>
+      
+        </div>
+        <div class="navBarAbaNovaMensagemAvisos" id="navBarAbaNovaMensagemAvisos">
+          <div id="cancelarNovaMensagem">
+            <i onclick="voltarTelaAvisos()" class="fa-solid fa-arrow-left"></i>
+          </div>
+          <div class="divAssuntoNovaMensagemAvisos">
+            <button
+              id="escolhaAssuntoDropdownButton"
+              class="escolhaAssuntoDropdownButton"
+            >
+              Escolha um assunto
+            </button>
+
+            <!-- Opções do Dropdown -->
+            <ul
+              id="assuntoOptionDropdownMenu"
+              class="assuntoOptionDropdownMenu"
+            >
+              <li class="optionAssunto">Rompimento</li>
+              <li class="optionAssunto">Problema Massivo</li>
+              <li class="optionAssunto">Outros</li>
+            </ul>
+          </div>
+          <div onclick="salvarAviso()" id="salvarNovaMensagem">
+            <i class="fa-solid fa-floppy-disk"></i>
+          </div>
+        </div>
       </div>
-      <div class="mainContentAvisos">
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
-          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
-          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
-          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quisquam veniam
-          consequuntur iste rem temporibus, architecto quod beatae ex odit.
-          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
-          doloremque quam eveniet.
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
-          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
-          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
-          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quisquam veniam
-          consequuntur iste rem temporibus, architecto quod beatae ex odit.
-          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
-          doloremque quam eveniet.
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
-          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
-          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
-          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quisquam veniam
-          consequuntur iste rem temporibus, architecto quod beatae ex odit.
-          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
-          doloremque quam eveniet.
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
-          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
-          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
-          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quisquam veniam
-          consequuntur iste rem temporibus, architecto quod beatae ex odit.
-          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
-          doloremque quam eveniet.
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
-          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
-          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
-          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quisquam veniam
-          consequuntur iste rem temporibus, architecto quod beatae ex odit.
-          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
-          doloremque quam eveniet.
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
-          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
-          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
-          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quisquam veniam
-          consequuntur iste rem temporibus, architecto quod beatae ex odit.
-          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
-          doloremque quam eveniet.
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
-          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
-          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
-          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quisquam veniam
-          consequuntur iste rem temporibus, architecto quod beatae ex odit.
-          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
-          doloremque quam eveniet.
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
-          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
-          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
-          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quisquam veniam
-          consequuntur iste rem temporibus, architecto quod beatae ex odit.
-          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
-          doloremque quam eveniet.
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 1: Lorem ipsum dolor sit amet consectetur, adipisicing
-          elit. Atque ad sed odio laudantium voluptatum nesciunt vel iusto.
-          Consequatur, exercitationem dolor! Sed, vero! Adipisci, quam
-          repellendus dolore voluptatum tenetur minus incidunt. Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Quisquam veniam
-          consequuntur iste rem temporibus, architecto quod beatae ex odit.
-          Accusamus nihil, id eligendi blanditiis alias nesciunt obcaecati
-          doloremque quam eveniet.
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 2: Lorem ipsum dolor sit amet...
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 3: Lorem ipsum dolor sit amet...
-        </div>
-        <div class="mensagemMainContentAvisos">
-          Mensagem longa 4: Lorem ipsum dolor sit amet...
-        </div>
+      <div class="abaNovaMensagemAvisos" id="abaNovaMensagemAvisos">
+        <textarea
+          id="txtAreaNovaMensagemAvisos"
+          placeholder="Escreva aqui..."
+        ></textarea>
+      </div>
+      <div class="mainContentAvisos" id="mainContentAvisos">
+        
       </div>
     </section>
 
