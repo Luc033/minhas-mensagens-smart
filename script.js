@@ -107,7 +107,7 @@ function exibirConfig(param) {
   removerElementosFilhos("resultadoConfigDiv");
 
   let iptValorOnt = [
-    "  > BLINDING optionAssunto: LAN 1 ATÉ LAN 4 > HAB / SSID 1 > HAB / SSID 5 > HAB",
+    "  > BLINDING OPTIONS: LAN 1 ATÉ LAN 4 > HAB / SSID 1 > HAB / SSID 5 > HAB",
     "  > NAT: FULL CONE",
     "  > ROUTE: IPV4 E IPV6 PADRONIZADOS",
     "  > UPNP:HAB",
@@ -122,7 +122,7 @@ function exibirConfig(param) {
     "  > ONT REINICIADA",
   ];
   let iMaxValueOnt = [
-    "BLINDING optionAssunto",
+    "BLINDING OPTIONS",
     "NAT",
     "ROUTE",
     "UPNP",
@@ -139,7 +139,7 @@ function exibirConfig(param) {
 
   // Greatek
   let iptValorGreatek = [
-    "\u00A0\u00A0> TX BEAMFORMING: HAB",
+    "  > TX BEAMFORMING: HAB",
     "  > LDPC: HAB",
     "  > STBC: HAB",
     "  > BG PROTEÇÃO: HAB",
@@ -601,7 +601,6 @@ function recuperarAvisos() {
 
       cursorRequest.onsuccess = function (event) {
         const cursor = event.target.result;
-
         if (cursor) {
           const divContainer = document.createElement("div");
           divContainer.className = "mensagemMainContentAvisos";
@@ -613,19 +612,36 @@ function recuperarAvisos() {
           divHeaderAssunto.innerText = cursor.value.assuntoEscolhido;
 
           const divHeaderDate = document.createElement("div");
-          divHeaderDate.innerText = cursor.value.dataAtual;
+          divHeaderDate.className = "dateDivAviso";
+
+          const paragDate = document.createElement("p");
+          // paragMsg.style.wordWrap = "break-word"
+          paragDate.innerText = cursor.value.dataAtual;
+          divHeaderDate.appendChild(paragDate);
+
+          const iconDelete = document.createElement("i");
+          iconDelete.ariaValueText = cursor.value.id;
+          iconDelete.className = "iconMsgDeleteAviso fa-solid fa-square-xmark";
+          divHeaderDate.appendChild(iconDelete);
 
           const divMsg = document.createElement("div");
-          divMsg.innerText = cursor.value.novoAviso;
+
+          const paragMsg = document.createElement("p");
+          //paragMsg.style.wordWrap = "break-word"
+          paragMsg.innerText = cursor.value.novoAviso;
 
           // Monta a estrutura
           divHeaderMsg.appendChild(divHeaderAssunto);
           divHeaderMsg.appendChild(divHeaderDate);
           divContainer.appendChild(divHeaderMsg);
+          divMsg.appendChild(paragMsg);
           divContainer.appendChild(divMsg);
 
           // Insere o novo aviso no início da lista na DOM
-          mainContentAvisos.insertBefore(divContainer, mainContentAvisos.firstChild);
+          mainContentAvisos.insertBefore(
+            divContainer,
+            mainContentAvisos.firstChild
+          );
 
           cursor.continue(); // Move para o próximo registro
         } else {
@@ -643,9 +659,6 @@ function recuperarAvisos() {
     console.error("❌ Erro ao abrir o banco de dados:", event.target.error);
   };
 }
-
-
-
 
 //
 
@@ -685,10 +698,11 @@ function excluirAviso(id) {
     const transaction = db.transaction(["avisos"], "readwrite");
     const store = transaction.objectStore("avisos");
 
-    const deleteRequest = store.delete(id); // Exclui o aviso
+    const deleteRequest = store.delete(Number(id)); // Converte ID para número antes de excluir
 
     deleteRequest.onsuccess = function () {
       console.log(`✅ Aviso com id ${id} excluído com sucesso.`);
+      recuperarAvisos(); // Atualiza a lista após excluir
     };
 
     deleteRequest.onerror = function () {
@@ -704,6 +718,7 @@ function excluirAviso(id) {
     console.error("❌ Erro ao abrir o banco de dados:", event.target.error);
   };
 }
+
 
 function excluirTodosAvisos() {
   return new Promise((resolve, reject) => {
@@ -761,4 +776,12 @@ iconRefreshAvisos.addEventListener("click", () => {
   iconRefreshAvisos.style.transition = "transform 0.5s ease-in-out"; // Transição suave
   iconRefreshAvisos.style.transform = `rotate(${rotation}deg)`;
   recuperarAvisos();
+});
+
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("iconMsgDeleteAviso")) {
+    const idAviso = event.target.getAttribute("aria-valuetext"); // Obtém o valor do atributo
+    console.log("Clicado para excluir ID:", idAviso);
+    excluirAviso(idAviso);
+  }
 });

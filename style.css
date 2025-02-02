@@ -426,7 +426,7 @@ input[type="radio"]:checked + label {
   display: block;
 }
 .showFlex {
- display: flex;
+  display: flex;
 }
 
 #resultadoConfigDiv {
@@ -543,7 +543,6 @@ input[type="checkbox"]:checked + label {
   align-items: center;
   padding: 10px;
   height: 50px;
-  
 }
 
 .iconNavbarAvisos {
@@ -553,7 +552,7 @@ input[type="checkbox"]:checked + label {
   text-shadow: rgba(255, 255, 255, 0.105) 0px 0px 4px;
 }
 
-.iconNavbarAvisos:hover{
+.iconNavbarAvisos:hover {
   text-shadow: rgba(255, 255, 255, 0.374) 0px 0px 4px;
 }
 .iconNavbarAvisos .fa-circle-xmark {
@@ -575,14 +574,14 @@ input[type="checkbox"]:checked + label {
   color: rgb(252, 182, 6);
 }
 
-.iconNavbarAvisos .fa-arrows-rotate{
+.iconNavbarAvisos .fa-arrows-rotate {
   color: rgb(11, 196, 196);
 }
-.iconNavbarAvisos .fa-arrows-rotate:hover{
+.iconNavbarAvisos .fa-arrows-rotate:hover {
   color: rgb(58, 247, 247);
 }
 
-.navbarAvisosDoMainContent{
+.navbarAvisosDoMainContent {
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
@@ -599,8 +598,8 @@ input[type="checkbox"]:checked + label {
   overflow-y: auto;
 }
 
-.mainContentAvisos > div{
-  width: 550px;
+.mainContentAvisos > div {
+  width: 530px;
 }
 
 .mensagemMainContentAvisos {
@@ -609,7 +608,9 @@ input[type="checkbox"]:checked + label {
   margin-bottom: 10px;
   border-radius: 5px;
 }
-
+.mensagemMainContentAvisos p{
+  word-wrap: break-word;
+}
 .mensagemHeadMainContentAvisos {
   display: flex;
   justify-content: space-between;
@@ -620,9 +621,25 @@ input[type="checkbox"]:checked + label {
   font-weight: bold;
   font-size: 12pt;
 }
-
-.mensagemHeadMainContentAvisos div:last-child {
+.mensagemHeadMainContentAvisos .dateDivAviso {
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  justify-content: center;
+  gap: 1em;
+}
+.mensagemHeadMainContentAvisos .dateDivAviso p {
+  margin: 0;
+  padding: 0;
   color: gray;
+}
+
+.mensagemHeadMainContentAvisos .dateDivAviso i {
+  color: rgb(164, 12, 12);
+  cursor: pointer;
+}
+.mensagemHeadMainContentAvisos .dateDivAviso i:hover {
+  color: rgb(223, 9, 9);
 }
 
 .abaNovaMensagemAvisos {
@@ -683,7 +700,7 @@ input[type="checkbox"]:checked + label {
   box-sizing: border-box; /* Impede que padding aumente a largura */
 }
 
-.assuntoOptionDropdownMenu li:last-child{
+.assuntoOptionDropdownMenu li:last-child {
   border: none;
 }
 .assuntoOptionDropdownMenu li:hover {
