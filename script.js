@@ -483,7 +483,7 @@ function voltarTelaAvisos() {
     txtAreaNovaMensagemAvisos.value = ""; // Remove todo o conteúdo
   }
   assuntoEscolhido = "";
-  efeitoAlternarDisplay("mainContentAvisos", "block", false);
+  efeitoAlternarDisplay("mainContentAvisos", "flex", false);
   efeitoAlternarDisplay("navbarAvisosDoMainContent", "flex", false);
   efeitoAlternarDisplay("navBarAbaNovaMensagemAvisos", "none", false);
   efeitoAlternarDisplay("abaNovaMensagemAvisos", "none", false);

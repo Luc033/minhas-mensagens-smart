@@ -588,7 +588,7 @@ input[type="checkbox"]:checked + label {
   gap: 1em;
 }
 .mainContentAvisos {
-  display: block;
+  display: flex;
   flex-direction: column-reverse;
   align-items: center;
   align-items: flex-start;
