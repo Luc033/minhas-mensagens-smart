@@ -590,16 +590,17 @@ input[type="checkbox"]:checked + label {
 .mainContentAvisos {
   display: flex;
   flex-direction: column-reverse;
-  align-items: center;
   align-items: flex-start;
-  justify-content: flex-end;
+  justify-content: flex-start;
   flex: 1;
   padding: 15px;
   overflow-y: auto;
+  /*width: 100%; /* Para evitar que o flexbox faça ajustes inesperados */
 }
 
 .mainContentAvisos > div {
-  width: 530px;
+  max-width: 530px; /* Limite máximo */
+  width: 100%; /* Garante que os elementos respeitem o espaço disponível */
 }
 
 .mensagemMainContentAvisos {
@@ -607,10 +608,18 @@ input[type="checkbox"]:checked + label {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
+  width: 100%; /* Ocupa toda a largura disponível dentro do container */
+  box-sizing: border-box; /* Garante que padding e border não alterem o tamanho */
+  word-wrap: break-word; /* Quebra palavras longas */
+  max-width: 530px; /* Limita a largura máxima */
 }
-.mensagemMainContentAvisos p{
-  word-wrap: break-word;
+
+.mensagemMainContentAvisos p {
+  word-wrap: break-word; /* Quebra palavras longas */
+  overflow-wrap: break-word; /* Alternativa para navegadores modernos */
+  max-width: 100%; /* Evita que o conteúdo ultrapasse a caixa */
 }
+
 .mensagemHeadMainContentAvisos {
   display: flex;
   justify-content: space-between;
