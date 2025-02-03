@@ -548,6 +548,10 @@ function salvarAviso() {
       store.put(aviso); // Salva o aviso com o novo ID
       voltarTelaAvisos();
       recuperarAvisos();
+      setTimeout(() => {
+        const container = document.getElementById("mainContentAvisos");
+        container.scrollTop = container.scrollHeight;
+      }, 200);
       assuntoEscolhido = "";
 
       // Criando uma animação para ilutrar que foi inserido com sucesso
@@ -642,6 +646,11 @@ function recuperarAvisos() {
             divContainer,
             mainContentAvisos.firstChild
           );
+
+          setTimeout(() => {
+            const container = document.getElementById("mainContentAvisos");
+            container.scrollTop = container.scrollHeight;
+          }, 200);
 
           cursor.continue(); // Move para o próximo registro
         } else {
