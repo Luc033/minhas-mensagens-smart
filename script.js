@@ -292,7 +292,7 @@ function exibirConfig(param) {
         iptValor[i] == "  > ROTEADOR E ONU REINICIADOS" &&
         radioPt.value != "- configurações realizadas no 1º ponto:"
       ) {
-        elementIpt.value = "ROTEADOR REINICIADO";
+        elementIpt.value = "  > ROTEADOR REINICIADO";
       } else {
         elementIpt.value = iptValor[i];
       }
@@ -793,4 +793,12 @@ document.addEventListener("click", (event) => {
     console.log("Clicado para excluir ID:", idAviso);
     excluirAviso(idAviso);
   }
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
 });
