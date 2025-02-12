@@ -100,6 +100,8 @@ header nav i {
   animation: blink 1.5s infinite ease-in-out; /* Aplica a animação de piscar */
   transition: transform 0.3s ease;
 }
+
+
 .configIcon:hover {
   animation: none; /* Remove o efeito de piscar */
   transform: rotate(20deg); /* Gira ao passar o mouse */

@@ -19,11 +19,11 @@
       <nav>
         <i
           onclick="abrirConfiguracoes()"
-          class="navIcon configIcon fa-solid fa-gear" 
+          class="navIcon configIcon fa-solid fa-gear" title="Configurações de roteadores" 
         ></i>
         <i
           onclick="abrirAvisos()"
-          class="warningIcon navIcon fa-solid fa-triangle-exclamation"
+          class="warningIcon navIcon fa-solid fa-triangle-exclamation" title="Avisos"
         ></i>
       </nav>
     </header>
@@ -65,7 +65,7 @@
           class="title"
           data-phrase="Irei fazer algumas perguntinhas para diagnosticar a origem do problema para conseguir solucioná-lo Tudo bem?😉"
         >
-          Perguntinhas 1
+          Perguntinhas
         </div>
         <div
           class="title"
@@ -117,13 +117,19 @@ Prometo que não irei demorar! Enquanto isso, se tiver mais alguma dúvida, é s
         </div>
         <div
           class="title"
-          data-phrase="Você já testou a navegação de sua rede em outro aplicativo, por exemplo, no Youtube, o problema está acontecendo também?"
+          data-phrase="Certo, neste momento você está no mesmo cômodo que o roteador? 😀💙"
+        >
+          Mesmo cômodo?
+        </div>
+        <div
+          class="title"
+          data-phrase="Você já testou a navegação de sua rede em outro aplicativo, por exemplo, no Youtube, se o problema está acontecendo também?"
         >
           Se já testou outro app
         </div>
         <div
           class="title"
-          data-phrase="Você possui uma TV BOX? Seria um aparelho que conecta a sua TV à internet."
+          data-phrase="Essa televisão que você tem é uma Smart TV ou você utiliza uma TV BOX? Seria um aparelho que conecta a sua TV à internet. 😀"
         >
           TVBOX
         </div>
@@ -661,9 +667,9 @@ OBS.: Client pediu urgência"
         <h2>Oscilação</h2>
         <div
           class="title"
-          data-phrase="Quando o problema acontece, aparece algum símbolos no sinal wifi do seu dispositivo? Como '!', 'X' ou'Conectado, sem internet'"
+          data-phrase="Quando o problema acontece, aparece alguma luz vermelha no roteadou ou símbolos no sinal wifi do seu dispositivo? Como '!', 'X' ou'Conectado, sem internet' 💙"
         >
-          Símbolos
+          Símbolos e Led
         </div>
         <div
           class="title"
@@ -689,14 +695,14 @@ OBS.: Client pediu urgência"
             <i
               id="selecionarTudoCheckbox"
               onclick="selecionarTudoCheckbox()"
-              class="fa-solid fa-circle-check" 
+              class="fa-solid fa-circle-check" title="Selecionar tudo" 
             ></i
           ></span>
           <span>
             <i
               id="desselecionarIpt"
               onclick="desselecionarIptRadioPt()"
-              class="fa-solid fa-circle-xmark"
+              class="fa-solid fa-circle-xmark" title="Remover seleção"
             ></i
           ></span>
           <span
@@ -784,7 +790,7 @@ OBS.: Client pediu urgência"
           <i
             id="adiocionarPtIcon"
             class="fa-solid fa-circle-plus"
-            onclick="adicionarConfigPontoAdicional()" data-bs-toggle="tooltip" data-bs-placement="top" title="Clique para realizar uma ação!"
+            onclick="adicionarConfigPontoAdicional()" title="Novo ponto adicional"
           ></i>
         </div>
       </div>
@@ -794,24 +800,24 @@ OBS.: Client pediu urgência"
       <div class="navbarAvisos">
         <div class="navbarAvisosDoMainContent" id="navbarAvisosDoMainContent">
           <span class="iconNavbarAvisos"
-          ><i onclick="abrirAvisos()" class="fa-solid fa-circle-xmark"></i
+          ><i onclick="abrirAvisos()" class="fa-solid fa-circle-xmark" title="Fechar"></i
             ></span>
           <span class="iconNavbarAvisos"
           ><i
           onclick="adicionarNovoAviso()"
-          class="fa-solid fa-circle-plus"
+          class="fa-solid fa-circle-plus" title="Novo aviso"
           ></i
           ></span>
             <span class="iconNavbarAvisos"
-              ><i id="iconExcluirTodosAvisos" class="fa-solid fa-trash-can"></i
+              ><i id="iconExcluirTodosAvisos" class="fa-solid fa-trash-can" title="Excluir tudo"></i
             ></span>
             <span id="iconRefreshAvisos" onclick="" class="iconNavbarAvisos"
-              ><i class="fa-solid fa-arrows-rotate"></i></span>
+              ><i class="fa-solid fa-arrows-rotate" title="Atualizar"></i></span>
       
         </div>
         <div class="navBarAbaNovaMensagemAvisos" id="navBarAbaNovaMensagemAvisos">
           <div id="cancelarNovaMensagem">
-            <i onclick="voltarTelaAvisos()" class="fa-solid fa-arrow-left"></i>
+            <i onclick="voltarTelaAvisos()" class="fa-solid fa-arrow-left" title="Voltar"></i>
           </div>
           <div class="divAssuntoNovaMensagemAvisos">
             <button
@@ -832,7 +838,7 @@ OBS.: Client pediu urgência"
             </ul>
           </div>
           <div onclick="salvarAviso()" id="salvarNovaMensagem">
-            <i class="fa-solid fa-floppy-disk"></i>
+            <i class="fa-solid fa-floppy-disk" title="Salvar"></i>
           </div>
         </div>
       </div>

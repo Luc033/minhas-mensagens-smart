@@ -1,5 +1,6 @@
 let montandoMsg = [];
 let menuRoteadorSelecionado = 0;
+let roteadorSelecionado = 0;
 
 //const msgCopiado = document.getElementById("msgCopiado");
 const msgCopiado = document.createElement("span");
@@ -70,19 +71,24 @@ function removerElementosFilhos(nomeElemento) {
     }
   }
 }
-
 function selecionarTudoCheckbox() {
-  if (document.getElementsByName("configCheckboxIpt") != undefined) {
-    const configCheckboxIpt = document.getElementsByName("configCheckboxIpt");
-    for (let i = 0; i < configCheckboxIpt.length; i++) {
-      if (configCheckboxIpt[i].checked === false) {
-        configCheckboxIpt[i].checked = true;
-      }
+  const btnOnt = document.getElementById("btnConfigOnt");
+  const checkboxes = document.getElementsByName("configCheckboxIpt");
+  const idsBloqueados = ["configCheckboxIpt4", "configCheckboxIpt5", "configCheckboxIpt6", "configCheckboxIpt8", "configCheckboxIpt9"];
+
+  for (let i = 0; i < checkboxes.length; i++) {
+    const checkbox = checkboxes[i];
+
+    // Verifica se o botão ONT está visível e se o ID é "configCheckboxIpt4"
+    if (roteadorSelecionado === 1 && idsBloqueados.includes(checkbox.id)) {
+      checkbox.checked = false; // Mantém desmarcado
+    } else {
+      checkbox.checked = true; // Marca os demais checkboxes
     }
-  } else {
-    alert("nop");
   }
 }
+
+
 
 function desselecionarIptRadioPt() {
   let pontos = document.getElementsByName("pontos");
@@ -103,6 +109,8 @@ function desselecionarIptRadioPt() {
 
 let msgConfig = "";
 function exibirConfig(param) {
+
+  roteadorSelecionado = param;
   const resultadoConfigDiv = document.getElementById("resultadoConfigDiv");
   removerElementosFilhos("resultadoConfigDiv");
 
@@ -728,7 +736,6 @@ function excluirAviso(id) {
   };
 }
 
-
 function excluirTodosAvisos() {
   return new Promise((resolve, reject) => {
     const dbRequest = indexedDB.open("MensagensDeAvisoBD", 1);
@@ -795,9 +802,10 @@ document.addEventListener("click", (event) => {
   }
 });
 
-
-document.addEventListener("DOMContentLoaded", function() {
-  let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+document.addEventListener("DOMContentLoaded", function () {
+  let tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  );
   let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl);
   });
