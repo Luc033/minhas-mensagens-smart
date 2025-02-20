@@ -776,6 +776,9 @@ const iconExcluirTodosAvisos = document.getElementById(
 );
 
 iconExcluirTodosAvisos.addEventListener("click", async () => {
+  if(!confirm("Deseja excluir todos os recados?")){
+    return;
+  }
   try {
     await excluirTodosAvisos(); // Aguarda a exclusão antes de chamar recuperarAvisos
     recuperarAvisos(); // Chama recuperarAvisos após exclusão
@@ -796,6 +799,9 @@ iconRefreshAvisos.addEventListener("click", () => {
 
 document.addEventListener("click", (event) => {
   if (event.target.classList.contains("iconMsgDeleteAviso")) {
+    if(!confirm("Deseja realmente excluir esse aviso?")){
+      return;
+    }
     const idAviso = event.target.getAttribute("aria-valuetext"); // Obtém o valor do atributo
     console.log("Clicado para excluir ID:", idAviso);
     excluirAviso(idAviso);
